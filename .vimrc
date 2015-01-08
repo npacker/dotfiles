@@ -7,6 +7,7 @@ set expandtab
 set nowrap
 
 set showmatch
+set hlsearch
 
 set encoding=utf8
 set ffs=unix,mac,dos
@@ -16,7 +17,6 @@ set nowb
 set noswapfile
 
 syntax on
-filetype on
 filetype detect
 filetype plugin on
 filetype indent on

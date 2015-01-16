@@ -33,7 +33,7 @@ set nowrap
 set background=dark
 colorscheme solarized
 
-" UI STATUS "
+" UI "
 set number
 set laststatus=2
 

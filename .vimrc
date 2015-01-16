@@ -11,6 +11,8 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'puppetlabs/puppet-syntax-vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
 
 call vundle#end()
 

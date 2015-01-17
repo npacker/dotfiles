@@ -1,72 +1,128 @@
-" VUNDLE "
+" VUNDLE SETUP
+" =============================================================================
 filetype off
 set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 
-" PLUGINS "
+" PLUGINS
+" =============================================================================
 call vundle#begin()
 
+" Vundle
 Plugin 'gmarik/Vundle.vim'
+
+" Use <Tab> for autocompletion 
+Plugin 'ervandew/supertab'
+
+" Intelligently close braces and quotes
 Plugin 'Townk/vim-autoclose'
+
+" Allow placement of multiple cursors
 Plugin 'terryma/vim-multiple-cursors'
+
+" Puppet syntax support
 Plugin 'puppetlabs/puppet-syntax-vim'
+
+" Sass syntax support
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'altercation/vim-colors-solarized'
+
+" JavaScript syntax improved
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
-Plugin 'ervandew/supertab'
+
+" Solarized color scheme
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 
-" SYNTAX "
+" SYNTAX
+" =============================================================================
 syntax on
 filetype detect
 filetype plugin on
 filetype indent on
 
-" FORMATTING "
-set autoindent
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set backspace=eol,start,indent
+" FORMATTING
+" =============================================================================
+" Convert tabs to spaces
 set expandtab
+" Tabs are equal to 2 columns
+set tabstop=2
+" Reindent operations use 2 columns per tab
+set shiftwidth=2
+" Number of columns per tab in insert mode
+set softtabstop=2
+" Allow backspace to remove indentation, end-of-line, and insert positions
+set backspace=indent,eol,start
+" Auto indentation
+set autoindent
+" Disable visual text wrap
 set nowrap
 
-" APPEARANCE "
+" APPEARANCE
+" =============================================================================
+" Tell vim that the background is dark
 set background=dark
+" Solarized color scheme
 colorscheme solarized
 
-" UI "
+" UI
+" =============================================================================
+" Line numbers
 set number
+" Always show command bar
 set showcmd
+" Highlight the currnet line
 set cursorline
+" Always show status line
 set laststatus=2
+" Disable the fold column to the left of line numbers
 set foldcolumn=0
+" Highlight matching braces
 set showmatch
+" Disable audible bell
 set noerrorbells
+" Disable visual bell
 set novisualbell
+" Defer redraws for improved performance
 set lazyredraw
 
-" STATUSLINE "
+" STATUSLINE
+" =============================================================================
+" Filename tail
 set statusline=%t
+" Filetype
 set statusline+=\ %y
+" Separator
 set statusline+=%=      
+" Column number
 set statusline+=%c,
+" Line number of total lines
 set statusline+=%l:%L 
+" Percentage of file
 set statusline+=\ %P
 
-" SEARCH "
+" SEARCH
+" =============================================================================
+" Ignore search case
 set ignorecase
+" Observe search case if uppercase letters present
 set smartcase
+" Incremental search, highlight for each character typed
 set incsearch
+" Highlight all matches
 set hlsearch
 
-" ENCODING "
+" ENCODING 
+" =============================================================================
+" Default character encoding
 set encoding=utf8
-set ffs=unix,mac,dos
+" Possible end of line formats
+set fileformats=unix,mac,dos
 
-" BACKUP "
+" BACKUP
+" =============================================================================
+" Disable annoying backup/swap files
 set nobackup
-set nowb
+set nowritebackup
 set noswapfile

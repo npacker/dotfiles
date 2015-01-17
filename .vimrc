@@ -1,5 +1,6 @@
-set nocompatible
+" VUNDLE "
 filetype off
+set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 
 " PLUGINS "
@@ -22,7 +23,7 @@ filetype detect
 filetype plugin on
 filetype indent on
 
-" INDENTING AND WHITESPACE "
+" FORMATTING "
 set autoindent
 set tabstop=2
 set shiftwidth=2
@@ -37,11 +38,20 @@ colorscheme solarized
 
 " UI "
 set number
+set showcmd
+set cursorline
 set laststatus=2
+set foldcolumn=0
+set noerrorbells
+set novisualbell
+set lazyredraw
 
 " SEARCH "
-set showmatch
+set ignorecase
+set smartcase
+set incsearch
 set hlsearch
+set showmatch
 
 " ENCODING "
 set encoding=utf8

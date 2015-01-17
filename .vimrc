@@ -126,3 +126,8 @@ set fileformats=unix,mac,dos
 set nobackup
 set nowritebackup
 set noswapfile
+
+" MAPPINGS
+" =============================================================================
+" Auto insert semicolons at the end of the line
+inoremap ; <C-o>A;<Esc>

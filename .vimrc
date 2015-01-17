@@ -14,6 +14,7 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
+Plugin 'ervandew/supertab'
 
 call vundle#end()
 
@@ -42,6 +43,7 @@ set showcmd
 set cursorline
 set laststatus=2
 set foldcolumn=0
+set showmatch
 set noerrorbells
 set novisualbell
 set lazyredraw
@@ -59,7 +61,6 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-set showmatch
 
 " ENCODING "
 set encoding=utf8

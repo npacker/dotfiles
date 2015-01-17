@@ -104,10 +104,6 @@ set statusline+=\ %P
 
 " SEARCH
 " =============================================================================
-" Ignore search case
-set ignorecase
-" Observe search case if uppercase letters present
-set smartcase
 " Incremental search, highlight for each character typed
 set incsearch
 " Highlight all matches

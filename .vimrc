@@ -30,6 +30,9 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 
+" PHP syntax improved
+Plugin 'StanAngeloff/php.vim'
+
 " Solarized color scheme
 Plugin 'altercation/vim-colors-solarized'
 
@@ -37,7 +40,7 @@ call vundle#end()
 
 " SYNTAX
 " =============================================================================
-syntax on
+syntax enable
 filetype detect
 filetype plugin on
 filetype indent on
@@ -86,6 +89,8 @@ set noerrorbells
 set novisualbell
 " Defer redraws for improved performance
 set lazyredraw
+" Autocomplete options
+set completeopt=longest,menu,preview
 
 " STATUSLINE
 " =============================================================================
@@ -127,3 +132,7 @@ set noswapfile
 " =============================================================================
 " Auto insert semicolons at the end of the line
 inoremap ; <C-o>A;<Esc>
+
+" CONFIGURATION
+" =============================================================================
+let g:SuperTabDefaultCompletionType='<C-x><C-o>'

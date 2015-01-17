@@ -46,6 +46,14 @@ set noerrorbells
 set novisualbell
 set lazyredraw
 
+" STATUSLINE "
+set statusline=%t
+set statusline+=\ %y
+set statusline+=%=      
+set statusline+=%c,
+set statusline+=%l:%L 
+set statusline+=\ %P
+
 " SEARCH "
 set ignorecase
 set smartcase

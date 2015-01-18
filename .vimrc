@@ -103,16 +103,16 @@ set diffopt=filler,vertical
 set statusline=%t
 " Filetype
 set statusline+=\ %y
+" Buffer number
+set statusline+=\ #%n
 " Separator
 set statusline+=%=      
 " Modified
-set statusline+=%m
-" Buffer number
-set statusline+=\ #%n:
+set statusline+=%3m
 " Column number
 set statusline+=\ %2c
 " Line number
-set statusline+=\ %3l
+set statusline+=\ %l
 " Total lines
 set statusline+=/%L
 " Percentage of file

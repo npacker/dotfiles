@@ -40,7 +40,7 @@ call vundle#end()
 
 " SYNTAX
 " =============================================================================
-syntax enable
+syntax on
 filetype detect
 filetype plugin on
 filetype indent on

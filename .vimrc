@@ -14,11 +14,14 @@ Plugin 'gmarik/Vundle.vim'
 " Use <Tab> for autocompletion 
 Plugin 'ervandew/supertab'
 
-" Intelligently close braces and quotes
-Plugin 'Townk/vim-autoclose'
+" Add, delete, and change parenthesis and brackets
+Plugin 'tpope/vim-surround'
 
-" Allow placement of multiple cursors
-Plugin 'terryma/vim-multiple-cursors'
+" Wrapper for Git on Vim commandline
+Plugin 'tpope/vim-fugitive'
+
+" Edit several things at once with multiple cursors
+Plugin 'erryma/vim-multiple-cursors'
 
 " Puppet syntax support
 Plugin 'puppetlabs/puppet-syntax-vim'
@@ -101,9 +104,11 @@ set statusline+=\ %y
 " Separator
 set statusline+=%=      
 " Column number
-set statusline+=%c,
-" Line number of total lines
-set statusline+=%l:%L 
+set statusline+=%c
+" Line number
+set statusline+=\ %l
+" Total lines
+set statusline+=/%L
 " Percentage of file
 set statusline+=\ %P
 

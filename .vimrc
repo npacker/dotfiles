@@ -105,14 +105,18 @@ set statusline=%t
 set statusline+=\ %y
 " Separator
 set statusline+=%=      
+" Buffer number
+set statusline+=#%n:
 " Column number
-set statusline+=%c
+set statusline+=\ %2c
 " Line number
-set statusline+=\ %l
+set statusline+=\ %3l
 " Total lines
 set statusline+=/%L
 " Percentage of file
 set statusline+=\ %P
+" Padding
+set statusline+=\ 
 
 " SEARCH
 " =============================================================================

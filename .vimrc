@@ -105,8 +105,10 @@ set statusline=%t
 set statusline+=\ %y
 " Separator
 set statusline+=%=      
+" Modified
+set statusline+=%m
 " Buffer number
-set statusline+=#%n:
+set statusline+=\ #%n:
 " Column number
 set statusline+=\ %2c
 " Line number

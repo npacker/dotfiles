@@ -109,16 +109,14 @@ set statusline+=\ #%n
 set statusline+=%=      
 " Modified
 set statusline+=%3m
-" Column number
-set statusline+=\ %2c
 " Line number
-set statusline+=\ %l
-" Total lines
-set statusline+=/%L
+set statusline+=\ %3l:
+" Column number
+set statusline+=%c
 " Percentage of file
 set statusline+=\ %P
-" Padding
-set statusline+=\ 
+" Total lines
+set statusline+=\ (%L)
 
 " SEARCH
 " =============================================================================

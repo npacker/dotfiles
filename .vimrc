@@ -92,8 +92,10 @@ set noerrorbells
 set novisualbell
 " Defer redraws for improved performance
 set lazyredraw
-" Autocomplete options
+" Match longest substring, always show menu, show details
 set completeopt=longest,menu,preview
+" Display diff filler lines, always vertical split
+set diffopt=filler,vertical
 
 " STATUSLINE
 " =============================================================================

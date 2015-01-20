@@ -29,6 +29,9 @@ Plugin 'puppetlabs/puppet-syntax-vim'
 " Sass syntax support
 Plugin 'cakebaker/scss-syntax.vim'
 
+" CSS3 syntax support
+Plugin 'JulesWang/css.vim'
+
 " JavaScript syntax improved
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
@@ -78,6 +81,8 @@ colorscheme solarized
 set number
 " Always show command bar
 set showcmd
+" Always show edit mode
+set showmode
 " Highlight the currnet line
 set cursorline
 " Always show status line
@@ -90,12 +95,17 @@ set showmatch
 set noerrorbells
 " Disable visual bell
 set novisualbell
-" Defer redraws for improved performance
-set lazyredraw
-" Match longest substring, always show menu, show details
+" Autocomplete, match longest substring, always show menu, show details
 set completeopt=longest,menu,preview
 " Display diff filler lines, always vertical split
 set diffopt=filler,vertical
+
+" PERFORMANCE
+" =============================================================================
+" Defer redraws for improved performance; with ttyfast, this buffers output
+set lazyredraw
+" Increase number of characters sent to terminal at once
+set ttyfast
 
 " STATUSLINE
 " =============================================================================

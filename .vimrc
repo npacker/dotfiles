@@ -21,7 +21,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 
 " Edit several things at once with multiple cursors
-Plugin 'erryma/vim-multiple-cursors'
+Plugin 'terryma/vim-multiple-cursors'
 
 " Puppet syntax support
 Plugin 'puppetlabs/puppet-syntax-vim'

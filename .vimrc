@@ -138,7 +138,7 @@ set hlsearch
 " ENCODING 
 " =============================================================================
 " Default character encoding
-set encoding=utf8
+set encoding=utf-8
 " Possible end of line formats
 set fileformats=unix,mac,dos
 

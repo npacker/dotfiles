@@ -47,9 +47,7 @@ call vundle#end()
 " SYNTAX
 " =============================================================================
 syntax on
-filetype detect
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 
 " FORMATTING
 " =============================================================================

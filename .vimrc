@@ -79,7 +79,11 @@ set hidden
 " Tell vim that the background is dark
 set background=dark
 " Solarized color scheme
-colorscheme solarized
+try
+  colorscheme solarized
+catch
+  colorscheme default
+endtry
 
 " UI
 " =============================================================================

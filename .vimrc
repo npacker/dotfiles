@@ -69,6 +69,11 @@ set autoindent
 " Disable visual text wrap
 set nowrap
 
+" EDITING
+" =============================================================================
+" Hide buffers instead of close them, allowing switching before saving
+set hidden
+
 " APPEARANCE
 " =============================================================================
 " Tell vim that the background is dark

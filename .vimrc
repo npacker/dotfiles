@@ -39,6 +39,9 @@ Plugin 'pangloss/vim-javascript'
 " PHP syntax improved
 Plugin 'StanAngeloff/php.vim'
 
+" Racket syntax support
+Plugin 'wlangstroth/vim-racket'
+
 " Solarized color scheme
 Plugin 'altercation/vim-colors-solarized'
 
@@ -154,4 +157,4 @@ inoremap ; <C-o>A;<Esc>
 
 " CONFIGURATION
 " =============================================================================
-let g:SuperTabDefaultCompletionType='<C-x><C-o>'
+let g:SuperTabDefaultCompletionType='<C-n>'

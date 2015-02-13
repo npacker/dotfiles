@@ -109,6 +109,8 @@ set novisualbell
 set completeopt=longest,menu,preview
 " Display diff filler lines, always vertical split
 set diffopt=filler,vertical
+" Display at least one line between cursor and horizontal window borders
+set scrolloff=1
 
 " PERFORMANCE
 " =============================================================================

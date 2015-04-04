@@ -14,6 +14,9 @@ Plugin 'gmarik/Vundle.vim'
 " Use <Tab> for autocompletion 
 Plugin 'ervandew/supertab'
 
+" Use the the . operator with plugin commands
+Plugin 'tpope/vim-repeat'
+
 " Add, delete, and change parenthesis and brackets
 Plugin 'tpope/vim-surround'
 

@@ -169,4 +169,3 @@ set noswapfile
 
 " CONFIGURATION
 " =============================================================================
-let g:SuperTabDefaultCompletionType='<C-n>'

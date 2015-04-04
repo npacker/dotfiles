@@ -166,8 +166,6 @@ set noswapfile
 
 " MAPPINGS
 " =============================================================================
-" Auto insert semicolons at the end of the line
-inoremap ; <C-o>A;<Esc>
 
 " CONFIGURATION
 " =============================================================================

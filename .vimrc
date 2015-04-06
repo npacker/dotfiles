@@ -149,6 +149,8 @@ set statusline+=\ (%L)
 set incsearch
 " Highlight all matches
 set hlsearch
+" Use <C-L> to clear last search hilight
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 " ENCODING 
 " =============================================================================

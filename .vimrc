@@ -168,9 +168,3 @@ set fileformats=unix,mac,dos
 set nobackup
 set nowritebackup
 set noswapfile
-
-" MAPPINGS
-" =============================================================================
-
-" CONFIGURATION
-" =============================================================================

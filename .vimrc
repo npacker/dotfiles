@@ -23,9 +23,6 @@ Plugin 'tpope/vim-fugitive'
 " Use <Tab> for autocompletion 
 Plugin 'ervandew/supertab'
 
-" Ctrl-P fuzzy search
-Plugin 'kien/ctrlp.vim'
-
 " Edit several things at once with multiple cursors
 Plugin 'terryma/vim-multiple-cursors'
 
@@ -157,6 +154,8 @@ set incsearch
 set hlsearch
 " Use <C-L> to clear last search hilight
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+" Use <C-P> for fuzzy file search
+nnoremap <C-P> :e<SPACE>**/
 
 " ENCODING 
 " =============================================================================

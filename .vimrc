@@ -11,17 +11,20 @@ call vundle#begin()
 " Vundle
 Plugin 'gmarik/Vundle.vim'
 
-" Use <Tab> for autocompletion 
-Plugin 'ervandew/supertab'
-
 " Use the the . operator with plugin commands
 Plugin 'tpope/vim-repeat'
 
-" Add, delete, and change parenthesis and brackets
+" Add, change, and delete delimiters
 Plugin 'tpope/vim-surround'
 
 " Wrapper for Git on Vim commandline
 Plugin 'tpope/vim-fugitive'
+
+" Use <Tab> for autocompletion 
+Plugin 'ervandew/supertab'
+
+" Ctrl-P fuzzy search
+Plugin 'kien/ctrlp.vim'
 
 " Edit several things at once with multiple cursors
 Plugin 'terryma/vim-multiple-cursors'

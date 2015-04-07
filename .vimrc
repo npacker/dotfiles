@@ -31,7 +31,6 @@ Plugin 'terryma/vim-multiple-cursors'
 
 " Puppet syntax support
 Plugin 'puppetlabs/puppet-syntax-vim'
-Plugin 'shawncplus/phpcomplete.vim'
 
 " Sass syntax support
 Plugin 'cakebaker/scss-syntax.vim'
@@ -45,6 +44,7 @@ Plugin 'pangloss/vim-javascript'
 
 " PHP syntax improved
 Plugin 'StanAngeloff/php.vim'
+Plugin 'shawncplus/phpcomplete.vim'
 
 " Racket syntax support
 Plugin 'wlangstroth/vim-racket'

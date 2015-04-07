@@ -93,6 +93,8 @@ endtry
 
 " UI
 " =============================================================================
+" Remove splash text
+set shortmess+=I
 " Line numbers
 set number
 " Always show command bar

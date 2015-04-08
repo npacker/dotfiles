@@ -123,6 +123,9 @@ set completeopt=longest,menu,preview
 set diffopt=filler,vertical
 " Display at least one line between cursor and horizontal window borders
 set scrolloff=1
+" Display unwanted characters
+set list
+set listchars=tab:·\ ,trail:·,nbsp:+
 
 " GUI
 " =============================================================================

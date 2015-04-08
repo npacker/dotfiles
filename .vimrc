@@ -57,6 +57,12 @@ Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 
+" CONFIG
+" =============================================================================
+let g:multi_cursor_exit_from_visual_mode=0
+let g:multi_cursor_exit_from_insert_mode=0
+let g:multi_cursor_normal_maps={'d':1,'f':1,'F':1,'T':1,'t':1}
+
 " SYNTAX
 " =============================================================================
 syntax on

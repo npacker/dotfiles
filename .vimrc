@@ -137,7 +137,7 @@ set wildmenu
 " Activate wildmenu with <TAB>
 set wildchar=<TAB>
 " Show wildmenu list
-set wildmode=list
+set wildmode=full
 
 " GUI
 " =============================================================================

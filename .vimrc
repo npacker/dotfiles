@@ -52,6 +52,9 @@ Plugin 'shawncplus/phpcomplete.vim'
 " Racket syntax support
 Plugin 'wlangstroth/vim-racket'
 
+" Extra syntax
+Plugin 'justinmk/vim-syntax-extra'
+
 " Solarized color scheme
 Plugin 'altercation/vim-colors-solarized'
 

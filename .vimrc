@@ -203,6 +203,8 @@ set statusline+=\ (%L)
 set incsearch
 " Highlight all matches
 set hlsearch
+" Assume global search by default
+set gdefault
 " Use <C-L> to clear last search hilight
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 " Use <C-P> for fuzzy file search

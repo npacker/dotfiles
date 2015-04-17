@@ -26,11 +26,14 @@ Plugin 'tpope/vim-surround'
 " Wrapper for Git on Vim commandline
 Plugin 'tpope/vim-fugitive'
 
-" Use <Tab> for autocompletion 
-Plugin 'ervandew/supertab'
-
 " Edit several things at once with multiple cursors
 Plugin 'terryma/vim-multiple-cursors'
+
+" Show git changes in the gutter
+Plugin 'airblade/vim-gitgutter'
+
+" Use <Tab> for autocompletion 
+Plugin 'ervandew/supertab'
 
 " Puppet syntax support
 Plugin 'puppetlabs/puppet-syntax-vim'

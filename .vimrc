@@ -29,10 +29,7 @@ Plugin 'tpope/vim-fugitive'
 " Edit several things at once with multiple cursors
 Plugin 'terryma/vim-multiple-cursors'
 
-" Show git changes in the gutter
-Plugin 'airblade/vim-gitgutter'
-
-" Use <Tab> for autocompletion 
+" Use <Tab> for autocompletion
 Plugin 'ervandew/supertab'
 
 " Puppet syntax support
@@ -47,6 +44,7 @@ Plugin 'JulesWang/css.vim'
 " JavaScript syntax improved
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax'
 
 " PHP syntax improved
 Plugin 'StanAngeloff/php.vim'
@@ -188,7 +186,7 @@ set statusline+=\ %y
 " Buffer number
 set statusline+=\ #%n
 " Separator
-set statusline+=%=      
+set statusline+=%=
 " Modified
 set statusline+=%3m
 " Line number
@@ -212,6 +210,8 @@ set gdefault
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 " Use <C-P> for fuzzy file search
 nnoremap <C-P> :e<SPACE>**/
+" Use very magic regular expressions for search and replace
+cnoremap %s/ %smagic/
 
 " ENCODING 
 " =============================================================================

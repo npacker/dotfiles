@@ -4,15 +4,17 @@ filetype off
 set nocompatible
 
 if has("win32")
+  scriptencoding utf-8
   set rtp+=~/vimfiles/bundle/Vundle.vim/
   let path='~/vimfiles/bundle'
+  call vundle#begin(path)
 else
   set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
 endif
 
 " PLUGINS
 " =============================================================================
-call vundle#begin()
 
 " Vundle
 Plugin 'gmarik/Vundle.vim'
@@ -224,6 +226,8 @@ cnoremap %s/ %smagic/
 " =============================================================================
 " Default character encoding
 set encoding=utf-8
+" Default file encoding
+set fileencoding=utf-8
 " Possible end of line formats
 set fileformats=unix,mac,dos
 

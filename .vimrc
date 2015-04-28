@@ -138,7 +138,7 @@ set diffopt=filler,vertical
 set scrolloff=1
 " Display unwanted characters
 set list
-set listchars=tab:·\ ,trail:·,nbsp:+
+set listchars=tab:›\ ,trail:·,nbsp:+
 " Turn on wildmenu
 set wildmenu
 " Activate wildmenu with <TAB>

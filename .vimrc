@@ -1,10 +1,10 @@
 " VUNDLE SETUP
 " =============================================================================
 filetype off
+scriptencoding utf-8
 set nocompatible
 
 if has("win32")
-  scriptencoding utf-8
   set rtp+=~/vimfiles/bundle/Vundle.vim/
   let path='~/vimfiles/bundle'
   call vundle#begin(path)

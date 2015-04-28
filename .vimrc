@@ -36,7 +36,7 @@ Plugin 'terryma/vim-expand-region'
 Plugin 'Lokaltog/vim-easymotion'
 
 " Use <Tab> for autocompletion
-Plugin 'ervandew/supetrab'
+Plugin 'ervandew/supertab'
 
 " Puppet syntax support
 Plugin 'puppetlabs/puppet-syntax-vim'
@@ -237,6 +237,8 @@ set statusline+=\ (%L)
 " =============================================================================
 " Incremental search, highlight for each character typed
 set incsearch
+" Highlight all search matches
+set hlsearch
 " Ignore case of search word
 set ignorecase
 " Search is case-sensitive only if upper case characters present

@@ -237,8 +237,6 @@ set statusline+=\ (%L)
 " =============================================================================
 " Incremental search, highlight for each character typed
 set incsearch
-" Highlight all matches
-set hlsearch
 " Ignore case of search word
 set ignorecase
 " Search is case-sensitive only if upper case characters present

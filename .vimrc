@@ -44,7 +44,7 @@ Plugin 'JulesWang/css.vim'
 " JavaScript syntax improved
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
-Plugin 'othree/javascript-libraries-syntax'
+Plugin 'othree/javascript-libraries-syntax.vim'
 
 " PHP syntax improved
 Plugin 'StanAngeloff/php.vim'

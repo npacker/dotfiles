@@ -96,6 +96,8 @@ set nowrap
 " =============================================================================
 " Hide buffers instead of close them, allowing switching before saving
 set hidden
+" Eliminate timeout when pressing <Esc>
+set ttimeoutlen=0
 
 " APPEARANCE
 " =============================================================================

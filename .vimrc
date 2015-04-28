@@ -86,6 +86,8 @@ let g:expand_region_text_objects = {
   \ }
 " Vim EasyMotion
 map <Leader> <Plug>(easymotion-prefix)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 
 " SYNTAX
 " =============================================================================

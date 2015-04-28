@@ -69,11 +69,15 @@ call vundle#end()
 
 " CONFIG
 " =============================================================================
+"
 " Vim Multiple Cursors
+" --------------------
 let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 let g:multi_cursor_normal_maps={'d':1}
+
 " Vim Expand Region
+" -----------------
 let g:expand_region_text_objects = {
   \ 'iw'  :0,
   \ 'iW'  :0,
@@ -84,10 +88,17 @@ let g:expand_region_text_objects = {
   \ 'iB'  :1,
   \ 'ip'  :0,
   \ }
+
 " Vim EasyMotion
+" --------------
+let g:EasyMotion_startofline = 0
 map <Leader> <Plug>(easymotion-prefix)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 " SYNTAX
 " =============================================================================

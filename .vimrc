@@ -93,12 +93,12 @@ let g:expand_region_text_objects = {
 " --------------
 let g:EasyMotion_startofline = 0
 map <Leader> <Plug>(easymotion-prefix)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
 
 " SYNTAX
 " =============================================================================

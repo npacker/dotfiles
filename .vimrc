@@ -66,9 +66,21 @@ call vundle#end()
 
 " CONFIG
 " =============================================================================
+" Vim Multiple Cursors
 let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 let g:multi_cursor_normal_maps={'d':1}
+" Vim Expand Region
+let g:expand_region_text_objects = {
+  \ 'iw'  :0,
+  \ 'iW'  :0,
+  \ 'i"'  :0,
+  \ 'i''' :0,
+  \ 'i]'  :1,
+  \ 'ib'  :1,
+  \ 'iB'  :1,
+  \ 'ip'  :0,
+  \ }
 
 " SYNTAX
 " =============================================================================
@@ -209,6 +221,10 @@ set statusline+=\ (%L)
 set incsearch
 " Highlight all matches
 set hlsearch
+" Ignore case of search word
+set ignorecase
+" Search is case-sensitive only if upper case characters present
+set smartcase
 " Assume global search by default
 set gdefault
 " Use <C-L> to clear last search hilight

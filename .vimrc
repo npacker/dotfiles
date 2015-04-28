@@ -20,11 +20,11 @@ Plugin 'gmarik/Vundle.vim'
 " Use the the . operator with plugin commands
 Plugin 'tpope/vim-repeat'
 
-" Add, change, and delete delimiters
-Plugin 'tpope/vim-surround'
-
 " Wrapper for Git on Vim commandline
 Plugin 'tpope/vim-fugitive'
+
+" Add, change, and delete delimiters
+Plugin 'tpope/vim-surround'
 
 " Edit several things at once with multiple cursors
 Plugin 'terryma/vim-multiple-cursors'

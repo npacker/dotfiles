@@ -239,10 +239,6 @@ set statusline+=\ (%L)
 set incsearch
 " Highlight all search matches
 set hlsearch
-" Ignore case of search word
-set ignorecase
-" Search is case-sensitive only if upper case characters present
-set smartcase
 " Assume global search by default
 set gdefault
 " Use <C-L> to clear last search hilight

@@ -29,6 +29,9 @@ Plugin 'tpope/vim-fugitive'
 " Edit several things at once with multiple cursors
 Plugin 'terryma/vim-multiple-cursors'
 
+" Expand the current visual selection
+Plugin 'terryma/vim-expand-region'
+
 " Use <Tab> for autocompletion
 Plugin 'ervandew/supertab'
 

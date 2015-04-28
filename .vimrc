@@ -32,8 +32,11 @@ Plugin 'terryma/vim-multiple-cursors'
 " Expand the current visual selection
 Plugin 'terryma/vim-expand-region'
 
+" Vastly enhanced movement controls
+Plugin 'Lokaltog/vim-easymotion'
+
 " Use <Tab> for autocompletion
-Plugin 'ervandew/supertab'
+Plugin 'ervandew/supetrab'
 
 " Puppet syntax support
 Plugin 'puppetlabs/puppet-syntax-vim'
@@ -81,6 +84,8 @@ let g:expand_region_text_objects = {
   \ 'iB'  :1,
   \ 'ip'  :0,
   \ }
+" Vim EasyMotion
+map <Leader> <Plug>(easymotion-prefix)
 
 " SYNTAX
 " =============================================================================

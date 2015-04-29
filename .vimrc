@@ -145,8 +145,8 @@ set nowrap
 
 " EDITING
 " =============================================================================
-" Map <Leader> to <Space>
-map <Space> <Leader>
+" Map <Leader> to <SPACE>
+map <SPACE> <Leader>
 " Hide buffers instead of close them, allowing switching before saving
 set hidden
 " Set reasonable timout
@@ -238,6 +238,8 @@ set gdefault
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 " Use <C-P> for fuzzy file search
 nnoremap <C-P> :e<SPACE>**/
+" Use <C-K> for buffer search
+nnoremap <C-K> :b<SPACE>
 " Use very magic regular expressions for search and replace
 cnoremap %s/ %smagic/
 

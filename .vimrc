@@ -98,6 +98,7 @@ let g:expand_region_text_objects = {
 
 " Vim EasyMotion
 " --------------
+let g:EasyMotion_enter_jump_first = 1
 let g:EasyMotion_startofline = 0
 map <Leader> <Plug>(easymotion-prefix)
 map <Leader>j <Plug>(easymotion-j)

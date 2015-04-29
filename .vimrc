@@ -1,4 +1,4 @@
-" VUNDLE SETUP
+" VUNDLsetEset SETUP
 " =============================================================================
 filetype off
 set nocompatible
@@ -14,7 +14,6 @@ endif
 
 " PLUGINS
 " =============================================================================
-
 " Vundle
 Plugin 'gmarik/Vundle.vim'
 
@@ -85,7 +84,8 @@ let g:SuperTabLongestEnhanced = 1
 let g:multi_cursor_exit_from_visual_mode = 0
 let g:multi_cursor_exit_from_insert_mode = 0
 let g:multi_cursor_normal_maps = {
-      \ 'd':1
+      \ 'd':1,
+      \ 'c':1,
       \ }
 
 " Vim Expand Region
@@ -145,8 +145,12 @@ set nowrap
 
 " EDITING
 " =============================================================================
+" Map <Leader> to <Space>
+map <Space> <Leader>
 " Hide buffers instead of close them, allowing switching before saving
 set hidden
+" Set reasonable timout
+set timeoutlen=2000
 " Eliminate timeout when pressing <Esc>
 set ttimeoutlen=0
 
@@ -199,13 +203,6 @@ set wildchar=<TAB>
 " Show wildmenu list
 set wildmode=full
 
-" PERFORMANCE
-" =============================================================================
-" Defer redraws for improved performance; with ttyfast, this buffers output
-set lazyredraw
-" Increase number of characters sent to terminal at once
-set ttyfast
-
 " STATUSLINE
 " =============================================================================
 " Filename tail
@@ -239,6 +236,13 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 nnoremap <C-P> :e<SPACE>**/
 " Use very magic regular expressions for search and replace
 cnoremap %s/ %smagic/
+
+" PERFORMANCE
+" =============================================================================
+" Defer redraws for improved performance; with ttyfast, this buffers output
+set lazyredraw
+" Increase number of characters sent to terminal at once
+set ttyfast
 
 " BACKUP
 " =============================================================================

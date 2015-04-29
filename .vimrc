@@ -204,8 +204,6 @@ set wildchar=<TAB>
 set wildmode=full
 " Open new splits to the right
 set splitright
-" Open new splits below
-set splitbelow
 
 " STATUSLINE
 " =============================================================================

@@ -1,7 +1,6 @@
 " VUNDLE SETUP
 " =============================================================================
 filetype off
-scriptencoding utf-8
 set nocompatible
 
 if has("win32")
@@ -116,6 +115,17 @@ map  N <Plug>(easymotion-prev)
 syntax on
 filetype plugin indent on
 
+" ENCODING
+" =============================================================================
+" Default character encoding
+set encoding=utf-8
+" Default file encoding
+set fileencoding=utf-8
+" File encoding hints
+set fileencodings=utf-8,latin1,usc-bom
+" Possible end of line formats
+set fileformats=unix,mac,dos
+
 " FORMATTING
 " =============================================================================
 " Convert tabs to spaces
@@ -229,15 +239,6 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 nnoremap <C-P> :e<SPACE>**/
 " Use very magic regular expressions for search and replace
 cnoremap %s/ %smagic/
-
-" ENCODING 
-" =============================================================================
-" Default character encoding
-set encoding=utf-8
-" Default file encoding
-set fileencoding=utf-8
-" Possible end of line formats
-set fileformats=unix,mac,dos
 
 " BACKUP
 " =============================================================================

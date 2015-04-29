@@ -202,6 +202,10 @@ set wildmenu
 set wildchar=<TAB>
 " Show wildmenu list
 set wildmode=full
+" Open new splits to the right
+set splitright
+" Open new splits below
+set splitbelow
 
 " STATUSLINE
 " =============================================================================

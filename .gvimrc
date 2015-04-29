@@ -2,7 +2,7 @@
 " =============================================================================
 " Set default GUI font for Windows
 if has("gui_win32")
-  set guifont=Consolas:h10
+  set guifont=Consolas:h10:cDEFAULT
 endif
 
 " Set cursor line number
@@ -11,6 +11,8 @@ highlight CursorLineNr guifg=#657b83
 set lines=48
 " Set initial window width
 set columns=84
+" Set screen height buffer
+set guiheadroom=0
 " Use console dialogs
 set guioptions+=c
 " Remove menu bar

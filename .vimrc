@@ -217,8 +217,6 @@ set statusline+=\ (%L)
 " =============================================================================
 " Incremental search, highlight for each character typed
 set incsearch
-" Highlight all search matches
-set hlsearch
 " Assume global search by default
 set gdefault
 " Use <C-L> to clear last search hilight

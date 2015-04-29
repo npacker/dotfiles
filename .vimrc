@@ -70,25 +70,31 @@ call vundle#end()
 
 " CONFIG
 " =============================================================================
-"
+
+" SuperTab
+" --------
+let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabContextDefaultCompletionType = '<C-P>'
+let g:SuperTabLongestHighlight = 1
+let g:SuperTabLongestEnhanced = 1
+
 " Vim Multiple Cursors
 " --------------------
-let g:multi_cursor_exit_from_visual_mode=0
-let g:multi_cursor_exit_from_insert_mode=0
-let g:multi_cursor_normal_maps={'d':1}
+let g:multi_cursor_exit_from_visual_mode = 0
+let g:multi_cursor_exit_from_insert_mode = 0
+let g:multi_cursor_normal_maps = {
+      \ 'd':1
+      \ }
 
 " Vim Expand Region
 " -----------------
 let g:expand_region_text_objects = {
-  \ 'iw'  :0,
-  \ 'iW'  :0,
-  \ 'i"'  :0,
-  \ 'i''' :0,
-  \ 'i]'  :1,
-  \ 'ib'  :1,
-  \ 'iB'  :1,
-  \ 'ip'  :0,
-  \ }
+      \ 'i]':1,
+      \ 'ib':1,
+      \ 'iB':1,
+      \ 'it':1,
+      \ 'at':1,
+      \ }
 
 " Vim EasyMotion
 " --------------

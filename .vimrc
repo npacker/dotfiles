@@ -43,6 +43,9 @@ Plugin 'ervandew/supertab'
 " Puppet syntax support
 Plugin 'puppetlabs/puppet-syntax-vim'
 
+" HTML5 syntax support
+Plugin 'othree/html5.vim'
+
 " Sass syntax support
 Plugin 'cakebaker/scss-syntax.vim'
 

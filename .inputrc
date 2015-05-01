@@ -3,4 +3,4 @@ set editing-mode vi
 set keymap vi-command
 
 # Cycle through autocomplete options
-bind TAB: menu-complete
+bind TAB:menu-complete

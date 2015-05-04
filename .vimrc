@@ -35,6 +35,9 @@ Plugin 'terryma/vim-expand-region'
 " Vastly enhanced movement controls
 Plugin 'Lokaltog/vim-easymotion'
 
+" Emmet HTML editing
+Plugin 'mattn/emmet-vim'
+
 " Use <Tab> for autocompletion
 Plugin 'ervandew/supertab'
 
@@ -114,6 +117,13 @@ map  N <Plug>(easymotion-prev)
 " =============================================================================
 syntax on
 filetype plugin indent on
+
+" FILETYPES
+" =============================================================================
+augroup filetypes
+  autocmd BufNewFile,BufReadPre *.inc set filetype=php
+  autocmd BufNewFile,BufReadPre *.install set filetype=php
+augroup END
 
 " ENCODING
 " =============================================================================
@@ -237,7 +247,7 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 " Use <C-P> for fuzzy file search
 nnoremap <C-P> :e<SPACE>**/
 " Use <C-K> for buffer search
-nnoremap <C-K> :b<SPACE>
+nnoremap <C-K> :ls<CR>:b<SPACE>
 " Use very magic regular expressions for search and replace
 cnoremap %s/ %smagic/
 

@@ -103,13 +103,23 @@ let g:expand_region_text_objects = {
 
 " Vim EasyMotion
 " --------------
+" Press enter to jump to first match
 let g:EasyMotion_enter_jump_first = 1
+" Vertical motions attempt to stay in current column
 let g:EasyMotion_startofline = 0
+" Map EasyMotion prefix to <Leader>
 map <Leader> <Plug>(easymotion-prefix)
+" EasyMotion for downward line motion
 map <Leader>j <Plug>(easymotion-j)
+" EasyMotion for upward line motion
 map <Leader>k <Plug>(easymotion-k)
+" Two character search
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
+" EasyMotion search
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+" EasyMotion next/prev
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 

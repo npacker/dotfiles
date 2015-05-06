@@ -1,4 +1,4 @@
-" VUNDLsetEset SETUP
+" VUNDLE SETUP
 " =============================================================================
 filetype off
 set nocompatible
@@ -103,6 +103,8 @@ let g:expand_region_text_objects = {
 
 " Vim EasyMotion
 " --------------
+" Prompt
+let g:EasyMotion_prompt = '› '
 " Press enter to jump to first match
 let g:EasyMotion_enter_jump_first = 1
 " Vertical motions attempt to stay in current column

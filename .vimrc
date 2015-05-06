@@ -89,6 +89,7 @@ let g:multi_cursor_exit_from_insert_mode = 0
 let g:multi_cursor_normal_maps = {
       \ 'd':1,
       \ 'c':1,
+      \ 'r':1,
       \ }
 
 " Vim Expand Region

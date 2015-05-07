@@ -83,6 +83,8 @@ call vundle#end()
 " Unite
 " -----
 let g:unite_force_overwrite_statusline = 0
+let g:unite_source_rec_min_cache_files = 10
+let g:unite_source_rec_max_cache_files = 100000
 
 call unite#custom#profile('default', 'context', {
       \ 'start_insert' : 1,
@@ -159,7 +161,7 @@ let g:expand_region_text_objects = {
 " Vim EasyMotion
 " --------------
 " Prompt
-let g:EasyMotion_prompt = '› '
+let g:EasyMotion_prompt = '→ '
 " Press enter to jump to first match
 let g:EasyMotion_enter_jump_first = 1
 " Vertical motions attempt to stay in current column

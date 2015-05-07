@@ -98,6 +98,7 @@ augroup Unite
 augroup END
 
 function! s:unite_settings()
+  imap <buffer> <Tab> <Plug>(unite_select_next_line)
   imap <buffer> <C-J> <Plug>(unite_select_next_line)
   imap <buffer> <C-K> <Plug>(unite_select_previous_line)
 endfunction

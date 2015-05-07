@@ -93,10 +93,14 @@ call unite#custom#profile('default', 'context', {
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
-nnoremap <silent> <C-K> :Unite
-      \ buffer
+nnoremap <silent> <C-K>f :Unite
       \ file_rec/git:--cached:--exclude-standard
-      \ -buffer-name=goto
+      \ -buffer-name=files
+      \ <CR>
+
+nnoremap <silent> <C-K>b :Unite
+      \ buffer
+      \ -buffer-name=buffers
       \ <CR>
 
 augroup Unite

@@ -41,6 +41,8 @@ Plugin 'mattn/emmet-vim'
 " Use <Tab> for autocompletion
 Plugin 'ervandew/supertab'
 
+Plugin 'Shougo/vimproc.vim'
+
 " Crazy unified search interface
 Plugin 'Shougo/unite.vim'
 
@@ -81,23 +83,29 @@ call vundle#end()
 " Unite
 " -----
 let g:unite_force_overwrite_statusline = 0
+
 call unite#custom#profile('default', 'context', {
       \ 'start_insert' : 1,
-      \ 'short_source_names' : 1,
       \ 'prompt' : '› ',
       \ 'prompt_visible' : 1,
       \ 'auto_resize' : 1,
       \ })
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
 
-nnoremap <silent> <C-K>f :Unite file -buffer-name=file<CR>
-nnoremap <silent> <C-K>b :Unite buffer -buffer-name=buffer<CR>
-nnoremap <silent> <C-K>c :Unite command -buffer-name=command<CR>
+nnoremap <silent> <C-K> :Unite
+      \ buffer
+      \ file_rec/git:--cached:--exclude-standard
+      \ -buffer-name=goto
+      \ <CR>
 
 augroup Unite
   autocmd FileType unite call s:unite_settings()
 augroup END
 
 function! s:unite_settings()
+  nmap <buffer> <Esc> <Plug>(unite_exit)
+  imap <buffer> <Esc> <Plug>(unite_exit)
   imap <buffer> <Tab> <Plug>(unite_select_next_line)
   imap <buffer> <C-J> <Plug>(unite_select_next_line)
   imap <buffer> <C-K> <Plug>(unite_select_previous_line)
@@ -152,6 +160,7 @@ let g:EasyMotion_prompt = '› '
 let g:EasyMotion_enter_jump_first = 1
 " Vertical motions attempt to stay in current column
 let g:EasyMotion_startofline = 0
+
 " Map EasyMotion prefix to <Leader>
 map <Leader> <Plug>(easymotion-prefix)
 " EasyMotion for downward line motion

@@ -125,6 +125,7 @@ augroup Unite
 augroup END
 
 function! s:unite_settings()
+  set statusline=%t
   nmap <buffer> <Esc> <Plug>(unite_exit)
   imap <buffer> <Esc> <Plug>(unite_exit)
   imap <buffer> <Tab> <Plug>(unite_select_next_line)

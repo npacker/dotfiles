@@ -41,6 +41,9 @@ Plugin 'mattn/emmet-vim'
 " Use <Tab> for autocompletion
 Plugin 'ervandew/supertab'
 
+" Crazy unified search interface
+Plugin 'Shougo/unite.vim'
+
 " Puppet syntax support
 Plugin 'puppetlabs/puppet-syntax-vim'
 
@@ -75,31 +78,69 @@ call vundle#end()
 " CONFIG
 " =============================================================================
 
+" Unite
+" -----
+let g:unite_force_overwrite_statusline = 0
+call unite#custom#profile('default', 'context', {
+      \ 'start_insert' : 1,
+      \ 'short_source_names' : 1,
+      \ 'prompt' : '› ',
+      \ 'prompt_visible' : 1,
+      \ 'auto_resize' : 1,
+      \ })
+
+nnoremap <silent> <C-K>f :Unite file -buffer-name=file<CR>
+nnoremap <silent> <C-K>b :Unite buffer -buffer-name=buffer<CR>
+nnoremap <silent> <C-K>c :Unite command -buffer-name=command<CR>
+
+augroup Unite
+  autocmd FileType unite call s:unite_settings()
+augroup END
+
+function! s:unite_settings()
+  imap <buffer> <C-J> <Plug>(unite_select_next_line)
+  imap <buffer> <C-K> <Plug>(unite_select_previous_line)
+endfunction
+
 " SuperTab
 " --------
-let g:SuperTabDefaultCompletionType = 'context'
-let g:SuperTabContextDefaultCompletionType = '<C-P>'
 let g:SuperTabLongestHighlight = 1
 let g:SuperTabLongestEnhanced = 1
+let g:SuperTabCrMapping = 1
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = '<C-P>'
+let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<C-X><C-O>"]
+
+augroup SuperTab
+  autocmd Filetype * call UserSuperTabChain()
+augroup END
+
+function UserSuperTabChain()
+  if &omnifunc != ''
+    call SuperTabChain(&omnifunc, '<C-P>')
+  endif
+endfunction
 
 " Vim Multiple Cursors
 " --------------------
 let g:multi_cursor_exit_from_visual_mode = 0
 let g:multi_cursor_exit_from_insert_mode = 0
 let g:multi_cursor_normal_maps = {
-      \ 'd':1,
-      \ 'c':1,
-      \ 'r':1,
+      \ 'd' : 1,
+      \ 'c' : 1,
+      \ 'r' : 1,
+      \ 'x' : 1,
       \ }
 
 " Vim Expand Region
 " -----------------
 let g:expand_region_text_objects = {
-      \ 'i]':1,
-      \ 'ib':1,
-      \ 'iB':1,
-      \ 'it':1,
-      \ 'at':1,
+      \ 'i]' : 1,
+      \ 'ib' : 1,
+      \ 'iB' : 1,
+      \ 'it' : 1,
+      \ 'at' : 1,
       \ }
 
 " Vim EasyMotion
@@ -210,8 +251,8 @@ set showmatch
 set noerrorbells
 " Disable visual bell
 set novisualbell
-" Autocomplete, match longest substring, always show menu, show details
-set completeopt=longest,menu,preview
+" Autocomplete, match longest substring, always show menu
+set completeopt=longest,menu
 " Display diff filler lines, always vertical split
 set diffopt=filler,vertical
 " Display at least one line between cursor and horizontal window borders
@@ -257,10 +298,6 @@ set incsearch
 set gdefault
 " Use <C-L> to clear last search hilight
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-" Use <C-P> for fuzzy file search
-nnoremap <C-P> :e<SPACE>**/
-" Use <C-K> for buffer search
-nnoremap <C-K> :ls<CR>:b<SPACE>
 " Use very magic regular expressions for search and replace
 cnoremap %s/ %smagic/
 

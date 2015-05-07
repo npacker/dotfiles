@@ -95,14 +95,29 @@ call unite#custom#profile('default', 'context', {
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
+nnoremap <silent> <C-K>b :Unite
+      \ buffer
+      \ -buffer-name=buffers
+      \ <CR>
+
+nnoremap <silent> <C-K>c :Unite
+      \ command
+      \ -buffer-name=commands
+      \ <CR>
+
+nnoremap <silent> <C-K>e :Unite
+      \ file
+      \ -buffer-name=browse
+      \ <CR>
+
 nnoremap <silent> <C-K>f :Unite
       \ file_rec/git:--cached:--exclude-standard
       \ -buffer-name=files
       \ <CR>
 
-nnoremap <silent> <C-K>b :Unite
-      \ buffer
-      \ -buffer-name=buffers
+nnoremap <silent> <C-K>g :Unite
+      \ vimgrep
+      \ -buffer-name=find
       \ <CR>
 
 augroup Unite

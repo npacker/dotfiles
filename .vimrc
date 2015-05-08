@@ -59,6 +59,8 @@ Plugin 'cakebaker/scss-syntax.vim'
 " CSS3 syntax support
 Plugin 'JulesWang/css.vim'
 
+Plugin 'npacker/vim-css3complete'
+
 " JavaScript syntax improved
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'othree/javascript-libraries-syntax.vim'
@@ -146,9 +148,8 @@ function! s:unite_settings()
   " Press escape to exit unite buffers
   nmap <buffer> <Esc>   <Plug>(unite_exit)
   imap <buffer> <Esc>   <Plug>(unite_exit)
-  " Press tab to cycle through results
-  imap <buffer> <Tab>   <Plug>(unite_select_next_line)
-  imap <buffer> <S-Tab> <Plug>(unite_select_previous_line)
+  " Press tab to autocomplete based on result
+  imap <buffer> <Tab>   <Plug>(unite_complete)
   " Press <C-J> or <C-K> to cycle through results
   imap <buffer> <C-J>   <Plug>(unite_select_next_line)
   imap <buffer> <C-K>   <Plug>(unite_select_previous_line)

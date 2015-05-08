@@ -125,6 +125,8 @@ nnoremap <silent> <C-K>f :<C-U>Unite
       \ file
       \ file_rec/git:--cached:--exclude-standard
       \ -buffer-name=files
+      \ -resume
+      \ -input=
       \ <CR>
 
 " Run vimgrep

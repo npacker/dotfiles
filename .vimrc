@@ -142,7 +142,7 @@ augroup END
 
 function! s:unite_settings()
   " Short filename
-  set statusline=%t
+  setlocal statusline=%t
   " Press escape to exit unite buffers
   nmap <buffer> <Esc>   <Plug>(unite_exit)
   imap <buffer> <Esc>   <Plug>(unite_exit)

@@ -41,6 +41,7 @@ Plugin 'mattn/emmet-vim'
 " Use <Tab> for autocompletion
 Plugin 'ervandew/supertab'
 
+" Execute external command
 Plugin 'Shougo/vimproc.vim'
 
 " Crazy unified search interface
@@ -87,10 +88,12 @@ let g:unite_source_rec_min_cache_files = 10
 let g:unite_source_rec_max_cache_files = 100000
 
 call unite#custom#profile('default', 'context', {
-      \ 'start_insert' : 1,
       \ 'prompt' : '› ',
       \ 'prompt_visible' : 1,
       \ 'auto_resize' : 1,
+      \ 'start_insert' : 1,
+      \ 'hide_source_names' : 1,
+      \ 'sync' : 1,
       \ })
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
@@ -105,12 +108,8 @@ nnoremap <silent> <C-K>c :Unite
       \ -buffer-name=commands
       \ <CR>
 
-nnoremap <silent> <C-K>e :Unite
-      \ file
-      \ -buffer-name=browse
-      \ <CR>
-
 nnoremap <silent> <C-K>f :Unite
+      \ file
       \ file_rec/git:--cached:--exclude-standard
       \ -buffer-name=files
       \ <CR>
@@ -126,11 +125,12 @@ augroup END
 
 function! s:unite_settings()
   set statusline=%t
-  nmap <buffer> <Esc> <Plug>(unite_exit)
-  imap <buffer> <Esc> <Plug>(unite_exit)
-  imap <buffer> <Tab> <Plug>(unite_select_next_line)
-  imap <buffer> <C-J> <Plug>(unite_select_next_line)
-  imap <buffer> <C-K> <Plug>(unite_select_previous_line)
+  nmap <buffer> <Esc>   <Plug>(unite_exit)
+  imap <buffer> <Esc>   <Plug>(unite_exit)
+  imap <buffer> <Tab>   <Plug>(unite_select_next_line)
+  imap <buffer> <S-Tab> <Plug>(unite_select_previous_line)
+  imap <buffer> <C-J>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-K>   <Plug>(unite_select_previous_line)
 endfunction
 
 " SuperTab

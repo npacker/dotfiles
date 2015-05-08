@@ -153,9 +153,10 @@ function! s:unite_settings()
   " Press <C-J> or <C-K> to cycle through results
   imap <buffer> <C-J>   <Plug>(unite_select_next_line)
   imap <buffer> <C-K>   <Plug>(unite_select_previous_line)
-  " Press <C-S> to open result in horizontal split, <C-V> for vertical split
-  nnoremap <silent><buffer><expr> <C-S> unite#do_action('split')
-  inoremap <silent><buffer><expr> <C-S> unite#do_action('split')
+  " Press <C-P> to open result in horizontal split, <C-V> for vertical split
+  " Note: <C-S> conflicts with vim-surround
+  nnoremap <silent><buffer><expr> <C-P> unite#do_action('split')
+  inoremap <silent><buffer><expr> <C-P> unite#do_action('split')
   nnoremap <silent><buffer><expr> <C-V> unite#do_action('vsplit')
   inoremap <silent><buffer><expr> <C-V> unite#do_action('vsplit')
 endfunction

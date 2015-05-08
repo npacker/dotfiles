@@ -157,7 +157,6 @@ function! s:unite_settings()
   inoremap <silent><buffer><expr> <C-S> unite#do_action('split')
   nnoremap <silent><buffer><expr> <C-V> unite#do_action('vsplit')
   inoremap <silent><buffer><expr> <C-V> unite#do_action('vsplit')
-  inoremap <silent><buffer><expr> <C-V> unite#do_action('vsplit')
 endfunction
 
 " SuperTab

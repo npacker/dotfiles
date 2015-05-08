@@ -83,10 +83,17 @@ call vundle#end()
 
 " Unite
 " -----
+" We'll set the statusline ourselves
 let g:unite_force_overwrite_statusline = 0
+" Cache as few as 10 files
 let g:unite_source_rec_min_cache_files = 10
+" Cache up to 100,000 files
 let g:unite_source_rec_max_cache_files = 100000
 
+" Set options for all unite buffers
+" Prompt, prompt always visible, auto-resize unite buffer, open unite buffers
+" in insert mode, hide resource names in buffers with multiple source, open
+" buffers in synchronous mode for no delay
 call unite#custom#profile('default', 'context', {
       \ 'prompt' : '› ',
       \ 'prompt_visible' : 1,
@@ -95,58 +102,84 @@ call unite#custom#profile('default', 'context', {
       \ 'hide_source_names' : 1,
       \ 'sync' : 1,
       \ })
+" Use fuzzy matching
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+" Sort search results (not sorted by default with fuzzy matching)
 call unite#filters#sorter_default#use(['sorter_rank'])
 
-nnoremap <silent> <C-K>b :Unite
+" Open buffers
+nnoremap <silent> <C-K>b :<C-U>Unite
       \ buffer
       \ -buffer-name=buffers
       \ <CR>
 
-nnoremap <silent> <C-K>c :Unite
+" Vim commands
+nnoremap <silent> <C-K>c :<C-U>Unite
       \ command
       \ -buffer-name=commands
       \ <CR>
 
-nnoremap <silent> <C-K>f :Unite
+" List files in current directory, list git repository files recursively
+nnoremap <silent> <C-K>f :<C-U>Unite
       \ file
       \ file_rec/git:--cached:--exclude-standard
       \ -buffer-name=files
       \ <CR>
 
-nnoremap <silent> <C-K>g :Unite
+" Run vimgrep
+nnoremap <silent> <C-K>g :<C-U>Unite
       \ vimgrep
       \ -buffer-name=find
       \ <CR>
 
+" Call unite settings function when opening unite buffers
 augroup Unite
   autocmd FileType unite call s:unite_settings()
 augroup END
 
 function! s:unite_settings()
+  " Short filename
   set statusline=%t
+  " Press escape to exit unite buffers
   nmap <buffer> <Esc>   <Plug>(unite_exit)
   imap <buffer> <Esc>   <Plug>(unite_exit)
+  " Press tab to cycle through results
   imap <buffer> <Tab>   <Plug>(unite_select_next_line)
   imap <buffer> <S-Tab> <Plug>(unite_select_previous_line)
+  " Press <C-J> or <C-K> to cycle through results
   imap <buffer> <C-J>   <Plug>(unite_select_next_line)
   imap <buffer> <C-K>   <Plug>(unite_select_previous_line)
+  " Press <C-S> to open result in horizontal split, <C-V> for vertical split
+  nnoremap <silent><buffer><expr> <C-S> unite#do_action('split')
+  inoremap <silent><buffer><expr> <C-S> unite#do_action('split')
+  nnoremap <silent><buffer><expr> <C-V> unite#do_action('vsplit')
+  inoremap <silent><buffer><expr> <C-V> unite#do_action('vsplit')
+  inoremap <silent><buffer><expr> <C-V> unite#do_action('vsplit')
 endfunction
 
 " SuperTab
 " --------
+" Highlight the longest result
 let g:SuperTabLongestHighlight = 1
+" Type more characters to narrow longest match
 let g:SuperTabLongestEnhanced = 1
+" Cancel completion mode, preserving current text
 let g:SuperTabCrMapping = 1
+" Use context to determine type of autocomplete
 let g:SuperTabDefaultCompletionType = "context"
+" Fall back to standard keyword completion
 let g:SuperTabContextDefaultCompletionType = '<C-P>'
+" Available completion contexts
 let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+" Discover omnifunc, if set
 let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<C-X><C-O>"]
 
+" Call SuperTab chaining function
 augroup SuperTab
   autocmd Filetype * call UserSuperTabChain()
 augroup END
 
+" If omnicompletion is available, chain it with keyword completion
 function UserSuperTabChain()
   if &omnifunc != ''
     call SuperTabChain(&omnifunc, '<C-P>')
@@ -155,8 +188,11 @@ endfunction
 
 " Vim Multiple Cursors
 " --------------------
+" Disable escape exiting directly from visual mod
 let g:multi_cursor_exit_from_visual_mode = 0
+" Disable escape exiting directly from insert mode
 let g:multi_cursor_exit_from_insert_mode = 0
+" Allow additional motions in multiple cursors mode
 let g:multi_cursor_normal_maps = {
       \ 'd' : 1,
       \ 'c' : 1,

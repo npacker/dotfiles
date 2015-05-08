@@ -101,6 +101,7 @@ call unite#custom#profile('default', 'context', {
       \ 'start_insert' : 1,
       \ 'hide_source_names' : 1,
       \ 'sync' : 1,
+      \ 'unique' : 1,
       \ })
 " Use fuzzy matching
 call unite#filters#matcher_default#use(['matcher_fuzzy'])

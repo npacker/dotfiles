@@ -140,6 +140,7 @@ call unite#custom#source('file', 'matchers', 'matcher_context')
 nnoremap <silent> <C-P> :<C-U>Unite
       \ file_rec/git:--cached:--exclude-standard
       \ file
+      \ file/new
       \ -buffer-name=goto
       \ -resume
       \ -input=

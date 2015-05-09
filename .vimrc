@@ -80,7 +80,30 @@ Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 
-" CONFIG
+" SYNTAX
+" =============================================================================
+syntax on
+filetype plugin indent on
+
+" FILETYPES
+" =============================================================================
+augroup filetypes
+  autocmd BufNewFile,BufReadPre *.inc set filetype=php
+  autocmd BufNewFile,BufReadPre *.install set filetype=php
+augroup END
+
+" ENCODING
+" =============================================================================
+" Default character encoding
+set encoding=utf-8
+" Default file encoding
+set fileencoding=utf-8
+" File encoding hints
+set fileencodings=utf-8,latin1,usc-bom
+" Possible end of line formats
+set fileformats=unix,mac,dos
+
+" PLUGIN CONFIG
 " =============================================================================
 
 " Unite
@@ -100,40 +123,26 @@ call unite#custom#profile('default', 'context', {
       \ 'prompt' : '› ',
       \ 'prompt_visible' : 1,
       \ 'auto_resize' : 1,
+      \ 'winheight' : 10,
       \ 'start_insert' : 1,
       \ 'hide_source_names' : 1,
       \ 'unique' : 1,
       \ })
+
 " Use fuzzy matching
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " Sort search results (not sorted by default with fuzzy matching)
 call unite#filters#sorter_default#use(['sorter_rank'])
-
-" Open buffers
-nnoremap <silent> <C-K>b :<C-U>Unite
-      \ buffer
-      \ -buffer-name=buffers
-      \ <CR>
-
-" Vim commands
-nnoremap <silent> <C-K>c :<C-U>Unite
-      \ command
-      \ -buffer-name=commands
-      \ <CR>
+" Use context matcher for file source to allow wildcards
+call unite#custom#source('file', 'matchers', 'matcher_context')
 
 " List files in current directory, list git repository files recursively
-nnoremap <silent> <C-K>f :<C-U>Unite
-      \ file
+nnoremap <silent> <C-P> :<C-U>Unite
       \ file_rec/git:--cached:--exclude-standard
-      \ -buffer-name=files
+      \ file
+      \ -buffer-name=goto
       \ -resume
       \ -input=
-      \ <CR>
-
-" Run vimgrep
-nnoremap <silent> <C-K>g :<C-U>Unite
-      \ vimgrep
-      \ -buffer-name=find
       \ <CR>
 
 " Call unite settings function when opening unite buffers
@@ -237,29 +246,6 @@ omap / <Plug>(easymotion-tn)
 " EasyMotion next/prev
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
-
-" SYNTAX
-" =============================================================================
-syntax on
-filetype plugin indent on
-
-" FILETYPES
-" =============================================================================
-augroup filetypes
-  autocmd BufNewFile,BufReadPre *.inc set filetype=php
-  autocmd BufNewFile,BufReadPre *.install set filetype=php
-augroup END
-
-" ENCODING
-" =============================================================================
-" Default character encoding
-set encoding=utf-8
-" Default file encoding
-set fileencoding=utf-8
-" File encoding hints
-set fileencodings=utf-8,latin1,usc-bom
-" Possible end of line formats
-set fileformats=unix,mac,dos
 
 " FORMATTING
 " =============================================================================

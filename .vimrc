@@ -102,7 +102,6 @@ call unite#custom#profile('default', 'context', {
       \ 'auto_resize' : 1,
       \ 'start_insert' : 1,
       \ 'hide_source_names' : 1,
-      \ 'sync' : 1,
       \ 'unique' : 1,
       \ })
 " Use fuzzy matching

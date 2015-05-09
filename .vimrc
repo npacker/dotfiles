@@ -124,8 +124,8 @@ nnoremap <silent> <C-K>c :<C-U>Unite
 " List files in current directory, list git repository files recursively
 nnoremap <silent> <C-K>f :<C-U>Unite
       \ file
-      \ file/new
       \ file_rec/git:--cached:--exclude-standard
+      \ file/new
       \ -buffer-name=files
       \ -resume
       \ -input=

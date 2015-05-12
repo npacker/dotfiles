@@ -141,6 +141,7 @@ nnoremap <silent> <C-P> :<C-U>Unite
       \ file_rec/git:--cached:--exclude-standard
       \ file
       \ file/new
+      \ directory/new
       \ -buffer-name=goto
       \ -resume
       \ -input=
@@ -156,9 +157,9 @@ function! s:unite_settings()
   setlocal statusline=%t
   " Press escape to exit unite buffers
   nmap <buffer> <Esc>   <Plug>(unite_exit)
-  imap <buffer> <Esc>   <Plug>(unite_exit)
-  " Press tab to autocomplete based on result
-  imap <buffer> <Tab>   <Plug>(unite_complete)
+  " Press <Tab> or <S-Tab> to cycle through results
+  imap <buffer> <Tab>   <Plug>(unite_select_next_line)
+  imap <buffer> <S-Tab> <Plug>(unite_select_previous_line)
   " Press <C-J> or <C-K> to cycle through results
   imap <buffer> <C-J>   <Plug>(unite_select_next_line)
   imap <buffer> <C-K>   <Plug>(unite_select_previous_line)

@@ -17,6 +17,12 @@ endif
 " Vundle
 Plugin 'gmarik/Vundle.vim'
 
+" Execute external commands
+Plugin 'Shougo/vimproc.vim'
+
+" Unified search interface
+Plugin 'Shougo/unite.vim'
+
 " Use the the . operator with plugin commands
 Plugin 'tpope/vim-repeat'
 
@@ -26,26 +32,20 @@ Plugin 'tpope/vim-fugitive'
 " Add, change, and delete delimiters
 Plugin 'tpope/vim-surround'
 
-" Edit several things at once with multiple cursors
-Plugin 'terryma/vim-multiple-cursors'
-
 " Expand the current visual selection
 Plugin 'terryma/vim-expand-region'
+
+" Edit several things at once with multiple cursors
+Plugin 'terryma/vim-multiple-cursors'
 
 " Vastly enhanced movement controls
 Plugin 'Lokaltog/vim-easymotion'
 
-" Emmet HTML editing
-Plugin 'mattn/emmet-vim'
-
 " Use <Tab> for autocompletion
 Plugin 'ervandew/supertab'
 
-" Execute external command
-Plugin 'Shougo/vimproc.vim'
-
-" Crazy unified search interface
-Plugin 'Shougo/unite.vim'
+" Emmet HTML editing
+Plugin 'mattn/emmet-vim'
 
 " Puppet syntax support
 Plugin 'puppetlabs/puppet-syntax-vim'

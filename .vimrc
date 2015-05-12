@@ -17,12 +17,6 @@ endif
 " Vundle
 Plugin 'gmarik/Vundle.vim'
 
-" Execute external commands
-Plugin 'Shougo/vimproc.vim'
-
-" Unified search interface
-Plugin 'Shougo/unite.vim'
-
 " Use the the . operator with plugin commands
 Plugin 'tpope/vim-repeat'
 
@@ -31,6 +25,12 @@ Plugin 'tpope/vim-fugitive'
 
 " Add, change, and delete delimiters
 Plugin 'tpope/vim-surround'
+
+" Execute external commands
+Plugin 'Shougo/vimproc.vim'
+
+" Unified search interface
+Plugin 'Shougo/unite.vim'
 
 " Expand the current visual selection
 Plugin 'terryma/vim-expand-region'
@@ -58,12 +58,11 @@ Plugin 'cakebaker/scss-syntax.vim'
 
 " CSS3 syntax support
 Plugin 'JulesWang/css.vim'
-
 Plugin 'npacker/vim-css3complete'
 
 " JavaScript syntax improved
-Plugin 'jelera/vim-javascript-syntax'
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'jelera/vim-javascript-syntax'
 
 " PHP syntax improved
 Plugin 'StanAngeloff/php.vim'
@@ -72,7 +71,7 @@ Plugin 'shawncplus/phpcomplete.vim'
 " Racket syntax support
 Plugin 'wlangstroth/vim-racket'
 
-" Extra syntax
+" C syntax improved
 Plugin 'justinmk/vim-syntax-extra'
 
 " Solarized color scheme

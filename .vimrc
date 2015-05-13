@@ -137,7 +137,7 @@ call unite#custom#source('file', 'matchers', 'matcher_context')
 
 " List files in current directory, list git repository files recursively
 nnoremap <silent> <C-P> :<C-U>Unite
-      \ file_rec/git:--cached:--exclude-standard
+      \ file_rec/git:--cached:--exclude-standard:--other
       \ file
       \ file/new
       \ directory/new

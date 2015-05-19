@@ -204,9 +204,17 @@ let g:multi_cursor_exit_from_visual_mode = 0
 let g:multi_cursor_exit_from_insert_mode = 0
 " Allow additional motions in multiple cursors mode
 let g:multi_cursor_normal_maps = {
-      \ 'd' : 1,
+      \ ';' : 1,
+      \ ',' : 1,
       \ 'c' : 1,
+      \ 'C' : 1,
+      \ 'd' : 1,
+      \ 'f' : 1,
+      \ 'F' : 1,
+      \ 'p' : 1,
       \ 'r' : 1,
+      \ 't' : 1,
+      \ 'T' : 1,
       \ 'x' : 1,
       \ }
 

@@ -162,6 +162,9 @@ nnoremap <silent> <C-P> :<C-U>Unite
       \ -buffer-name=goto
       \ <CR>
 
+" Custom Buffers command to list open buffers
+command Buffers Unite buffer
+
 " Call unite settings function when opening unite buffers
 augroup Unite
   autocmd FileType unite call s:unite_settings()
@@ -257,7 +260,9 @@ let g:expand_region_text_objects = {
 
 " Vim EasyMotion
 " --------------
-" Prompt
+" Map <Leader> to <SPACE>
+map <Space> <Leader>
+" Prompt character
 let g:EasyMotion_prompt = '→ '
 " Press enter to jump to first match
 let g:EasyMotion_enter_jump_first = 1
@@ -299,8 +304,6 @@ set nowrap
 
 " EDITING
 " =============================================================================
-" Map <Leader> to <SPACE>
-map <SPACE> <Leader>
 " Hide buffers instead of close them, allowing switching before saving
 set hidden
 " Set reasonable timout

@@ -160,8 +160,6 @@ nnoremap <silent> <C-P> :<C-U>Unite
       \ file/new
       \ directory/new
       \ -buffer-name=goto
-      \ -resume
-      \ -input=
       \ <CR>
 
 " Call unite settings function when opening unite buffers
@@ -173,7 +171,7 @@ function! s:unite_settings()
   " Short filename
   setlocal statusline=%t
   " Press escape to exit unite buffers
-  nmap <buffer> <Esc>   <Plug>(unite_exit)
+  nmap <buffer> <Esc>   <Plug>(unite_all_exit)
   " Press <Tab> or <S-Tab> to cycle through results
   imap <buffer> <Tab>   <Plug>(unite_select_next_line)
   imap <buffer> <S-Tab> <Plug>(unite_select_previous_line)

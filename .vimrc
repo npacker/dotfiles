@@ -86,7 +86,8 @@ filetype plugin indent on
 
 " FILETYPES
 " ==============================================================================
-augroup filetypes
+augroup FiletypeSettings
+  autocmd!
   autocmd BufNewFile,BufReadPre *.inc set filetype=php
   autocmd BufNewFile,BufReadPre *.install set filetype=php
 augroup END
@@ -118,7 +119,7 @@ function! PhpSyntaxOverride()
 endfunction
 
 " Call PHP Syntax override function
-augroup phpSyntaxOverride
+augroup PhpSyntaxOverride
   autocmd!
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
@@ -153,14 +154,12 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 " Use context matcher for file source to allow wildcards
 call unite#custom#source('file', 'matchers', 'matcher_context')
 
-" Call unite settings function when opening unite buffers
-augroup Unite
-  autocmd FileType unite call s:unite_settings()
-augroup END
-
+" Unite custom settings callback
 function! s:unite_settings()
   " Short filename
   setlocal statusline=%t
+  " Unmap unite <C-P> mapping
+  nunmap <buffer> <C-P>
   " Press escape to exit unite buffers
   nmap <buffer> <Esc>   <Plug>(unite_all_exit)
   " Press <Tab> or <S-Tab> to cycle through results
@@ -173,6 +172,12 @@ function! s:unite_settings()
   nnoremap <silent><buffer><expr> <C-V> unite#do_action('vsplit')
   inoremap <silent><buffer><expr> <C-V> unite#do_action('vsplit')
 endfunction
+
+" Call unite settings function when opening unite buffers
+augroup UniteSettings
+  autocmd!
+  autocmd FileType unite call s:unite_settings()
+augroup END
 
 " Custom Unite mappings:
 " List files in current directory, list git repository files recursively
@@ -204,7 +209,8 @@ let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
 let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<C-X><C-O>"]
 
 " Call SuperTab chaining function
-augroup SuperTab
+augroup SuperTabSettings
+  autocmd!
   autocmd Filetype * call UserSuperTabChain()
 augroup END
 

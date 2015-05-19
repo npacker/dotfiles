@@ -1,5 +1,5 @@
 " VUNDLE SETUP
-" =============================================================================
+" ==============================================================================
 filetype off
 set nocompatible
 
@@ -13,7 +13,7 @@ else
 endif
 
 " PLUGINS
-" =============================================================================
+" ==============================================================================
 " Vundle
 Plugin 'gmarik/Vundle.vim'
 
@@ -80,19 +80,19 @@ Plugin 'altercation/vim-colors-solarized'
 call vundle#end()
 
 " SYNTAX
-" =============================================================================
+" ==============================================================================
 syntax on
 filetype plugin indent on
 
 " FILETYPES
-" =============================================================================
+" ==============================================================================
 augroup filetypes
   autocmd BufNewFile,BufReadPre *.inc set filetype=php
   autocmd BufNewFile,BufReadPre *.install set filetype=php
 augroup END
 
 " ENCODING
-" =============================================================================
+" ==============================================================================
 " Default character encoding
 set encoding=utf-8
 " Default file encoding
@@ -103,28 +103,30 @@ set fileencodings=utf-8,latin1,usc-bom
 set fileformats=unix,mac,dos
 
 " PLUGIN CONFIG
-" =============================================================================
+" ==============================================================================
 
 " PHP Syntax
-" ----------
+" ------------------------------------------------------------------------------
 " Don't trigger on PHP close tag in comments
 let php_parent_error_open = 1
 " SQL Syntax highlighting inside strings
 let php_sql_query = 1
 
+" Customize PHP syntax highlighting
 function! PhpSyntaxOverride()
   hi! def link phpDocTags       phpDefine
   hi! def link phpDocParam      phpType
   hi! def link phpDocIdentifier phpIdentifier
 endfunction
 
+" Call PHP Syntax override function
 augroup phpSyntaxOverride
   autocmd!
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
 " Unite
-" -----
+" ------------------------------------------------------------------------------
 " We'll set the statusline ourselves
 let g:unite_force_overwrite_statusline = 0
 " Cache as few as 10 files
@@ -153,18 +155,6 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 " Use context matcher for file source to allow wildcards
 call unite#custom#source('file', 'matchers', 'matcher_context')
 
-" List files in current directory, list git repository files recursively
-nnoremap <silent> <C-P> :<C-U>Unite
-      \ file_rec/git:--cached:--exclude-standard:--other
-      \ file
-      \ file/new
-      \ directory/new
-      \ -buffer-name=goto
-      \ <CR>
-
-" Custom Buffers command to list open buffers
-command Buffers Unite buffer
-
 " Call unite settings function when opening unite buffers
 augroup Unite
   autocmd FileType unite call s:unite_settings()
@@ -186,8 +176,20 @@ function! s:unite_settings()
   inoremap <silent><buffer><expr> <C-V> unite#do_action('vsplit')
 endfunction
 
+" Custom Unite mappings:
+" List files in current directory, list git repository files recursively
+nnoremap <silent> <C-P> :<C-U>Unite
+      \ file_rec/git:--cached:--exclude-standard:--other
+      \ file
+      \ file/new
+      \ directory/new
+      \ -buffer-name=goto
+      \ <CR>
+" Custom Buffers command to list open buffers
+command Buffers Unite buffer
+
 " SuperTab
-" --------
+" ------------------------------------------------------------------------------
 " Highlight the longest result
 let g:SuperTabLongestHighlight = 1
 " Type more characters to narrow longest match
@@ -216,7 +218,7 @@ function UserSuperTabChain()
 endfunction
 
 " Vim Multiple Cursors
-" --------------------
+" ------------------------------------------------------------------------------
 " Disable escape exiting directly from visual mod
 let g:multi_cursor_exit_from_visual_mode = 0
 " Disable escape exiting directly from insert mode
@@ -249,7 +251,7 @@ function! Multiple_cursors_after()
 endfunction
 
 " Vim Expand Region
-" -----------------
+" ------------------------------------------------------------------------------
 let g:expand_region_text_objects = {
       \ 'i]' : 1,
       \ 'ib' : 1,
@@ -259,7 +261,7 @@ let g:expand_region_text_objects = {
       \ }
 
 " Vim EasyMotion
-" --------------
+" ------------------------------------------------------------------------------
 " Map <Leader> to <SPACE>
 map <Space> <Leader>
 " Prompt character
@@ -286,7 +288,7 @@ map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
 " FORMATTING
-" =============================================================================
+" ==============================================================================
 " Convert tabs to spaces
 set expandtab
 " Tabs are equal to 2 columns
@@ -303,7 +305,7 @@ set autoindent
 set nowrap
 
 " EDITING
-" =============================================================================
+" ==============================================================================
 " Hide buffers instead of close them, allowing switching before saving
 set hidden
 " Set reasonable timout
@@ -312,7 +314,7 @@ set timeoutlen=2000
 set ttimeoutlen=0
 
 " APPEARANCE
-" =============================================================================
+" ==============================================================================
 " Tell vim that the background is dark
 set background=dark
 " Solarized color scheme
@@ -323,7 +325,7 @@ catch
 endtry
 
 " UI
-" =============================================================================
+" ==============================================================================
 " Remove splash text
 set shortmess+=I
 " Line numbers
@@ -363,7 +365,7 @@ set wildmode=full
 set splitright
 
 " STATUSLINE
-" =============================================================================
+" ==============================================================================
 " Filename tail
 set statusline=%t
 " Filetype
@@ -384,7 +386,7 @@ set statusline+=\ %P
 set statusline+=\ (%L)
 
 " SEARCH
-" =============================================================================
+" ==============================================================================
 " Incremental search, highlight for each character typed
 set incsearch
 " Assume global search by default
@@ -395,14 +397,14 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 cnoremap %s/ %smagic/
 
 " PERFORMANCE
-" =============================================================================
+" ==============================================================================
 " Defer redraws for improved performance; with ttyfast, this buffers output
 set lazyredraw
 " Increase number of characters sent to terminal at once
 set ttyfast
 
 " BACKUP
-" =============================================================================
+" ==============================================================================
 " Disable annoying backup/swap files
 set nobackup
 set nowritebackup

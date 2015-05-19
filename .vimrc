@@ -303,6 +303,20 @@ set backspace=indent,eol,start
 set autoindent
 " Disable visual text wrap
 set nowrap
+" 80 column text width
+set textwidth=80
+" Auto format comments
+set formatoptions+=c
+" Auto insert comment leader on <CR>
+set formatoptions+=r
+" Auto insert comment leader on 'o' or 'O' command
+set formatoptions+=o
+" Allow comment formatting with gq
+set formatoptions+=q
+" Recognize numbered lists when formatting text
+set formatoptions+=n
+" Remove comment leader when joining lines
+set formatoptions+=j
 
 " EDITING
 " ==============================================================================

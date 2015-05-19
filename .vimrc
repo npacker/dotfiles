@@ -213,6 +213,17 @@ let g:multi_cursor_normal_maps = {
       \ 'x' : 1,
       \ }
 
+" Disable the search key while in multi select mode
+function! Multiple_cursors_before()
+  noremap / <Nop>
+endfunction
+
+" Re-enable the search key after exiting multie select mode
+function! Multiple_cursors_after()
+  map  / <Plug>(easymotion-sn)
+  omap / <Plug>(easymotion-tn)
+endfunction
+
 " Vim Expand Region
 " -----------------
 let g:expand_region_text_objects = {

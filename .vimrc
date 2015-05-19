@@ -109,8 +109,6 @@ set fileformats=unix,mac,dos
 " ------------------------------------------------------------------------------
 " Don't trigger on PHP close tag in comments
 let php_parent_error_open = 1
-" SQL Syntax highlighting inside strings
-let php_sql_query = 1
 
 " Customize PHP syntax highlighting
 function! PhpSyntaxOverride()

@@ -108,7 +108,20 @@ set fileformats=unix,mac,dos
 " PHP Syntax
 " ----------
 " Don't trigger on PHP close tag in comments
-let php_parent_error_open=1
+let php_parent_error_open = 1
+" SQL Syntax highlighting inside strings
+let php_sql_query = 1
+
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags       phpDefine
+  hi! def link phpDocParam      phpType
+  hi! def link phpDocIdentifier phpIdentifier
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
 
 " Unite
 " -----

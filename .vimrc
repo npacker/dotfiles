@@ -105,6 +105,11 @@ set fileformats=unix,mac,dos
 " PLUGIN CONFIG
 " =============================================================================
 
+" PHP Syntax
+" ----------
+" Don't trigger on PHP close tag in comments
+let php_parent_error_open=1
+
 " Unite
 " -----
 " We'll set the statusline ourselves

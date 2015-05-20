@@ -148,7 +148,8 @@ call unite#custom#profile('default', 'context', {
       \ })
 " Set no-quit option for vimgrep soure
 call unite#custom#profile('source/vimgrep', 'context', {
-      \ 'no_quit' : 1
+      \ 'no_quit' : 1,
+      \ 'immediately' : 1,
       \ })
 " Use fuzzy matching
 call unite#filters#matcher_default#use(['matcher_fuzzy'])

@@ -335,8 +335,8 @@ set formatoptions+=r
 set formatoptions+=o
 " Allow comment formatting with gq
 set formatoptions+=q
-" Recognize numbered lists when formatting text
-set formatoptions+=n
+" Use second line of paragraph for indentation
+set formatoptions+=2
 " Remove comment leader when joining lines
 set formatoptions+=j
 

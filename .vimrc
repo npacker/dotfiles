@@ -156,6 +156,13 @@ call unite#custom#source('file', 'matchers', 'matcher_context')
 
 " Unite custom settings callback
 function! s:unite_settings()
+  let unite = unite#get_current_unite()
+
+  if unite.profile_name ==# 'buffers'
+    " Press <C-D> to delete the selected buffers
+    nnoremap <silent><buffer><expr> <C-D> unite#do_action('delete')
+  endif
+
   " Short filename
   setlocal statusline=%t
   " Unmap unite <C-P> mapping
@@ -189,7 +196,9 @@ nnoremap <silent> <C-P> :<C-U>Unite
       \ -buffer-name=goto
       \ <CR>
 " Custom Buffers command to list open buffers
-command Buffers Unite buffer
+command Buffers Unite
+      \ buffer
+      \ -buffer-name=buffers
 
 " SuperTab
 " ------------------------------------------------------------------------------

@@ -113,9 +113,9 @@ let php_parent_error_open = 1
 
 " Customize PHP syntax highlighting
 function! PhpSyntaxOverride()
-  hi! def link phpDocTags       phpDefine
-  hi! def link phpDocParam      phpType
-  hi! def link phpDocIdentifier phpIdentifier
+  highlight! default link phpDocTags       phpDefine
+  highlight! default link phpDocParam      phpType
+  highlight! default link phpDocIdentifier phpIdentifier
 endfunction
 
 " Call PHP Syntax override function
@@ -275,8 +275,6 @@ let g:expand_region_text_objects = {
 
 " Vim EasyMotion
 " ------------------------------------------------------------------------------
-" Map <Leader> to <SPACE>
-map <Space> <Leader>
 " Prompt character
 let g:EasyMotion_prompt = '→ '
 " Press enter to jump to first match
@@ -284,6 +282,8 @@ let g:EasyMotion_enter_jump_first = 1
 " Vertical motions attempt to stay in current column
 let g:EasyMotion_startofline = 0
 
+" Map <Leader> to <SPACE>
+map <Space> <Leader>
 " Map EasyMotion prefix to <Leader>
 map <Leader> <Plug>(easymotion-prefix)
 " EasyMotion for downward line motion

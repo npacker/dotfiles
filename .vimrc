@@ -133,29 +133,35 @@ let g:unite_source_rec_min_cache_files = 10
 " Cache up to 100,000 files
 let g:unite_source_rec_max_cache_files = 100000
 
-" Set options for all unite buffers
-" Prompt, prompt always visible, auto-resize unite buffer, open unite buffers
-" in insert mode, hide resource names in buffers with multiple source, open
-" buffers in synchronous mode for no delay
+" Set default options for all unite buffers:
+" - auto-resize unite buffer
+" - hide resource names in buffers with multiple source
+" - perform the default action immediately if only one candidate, do not open
+"   for no candidates
+" - prompt always visible
+" - open buffers in insert mode
+" - show only unique candidates, filter duplicates
+" - unite buffers have 10 line maximum height
 call unite#custom#profile('default', 'context', {
+      \ 'auto_resize' : 1,
+      \ 'hide_source_names' : 1,
+      \ 'immediately' : 1,
       \ 'prompt' : '› ',
       \ 'prompt_visible' : 1,
-      \ 'auto_resize' : 1,
-      \ 'winheight' : 10,
       \ 'start_insert' : 1,
-      \ 'hide_source_names' : 1,
       \ 'unique' : 1,
+      \ 'winheight' : 10,
       \ })
-" Set no-quit option for vimgrep soure
+" Prevent vimgrep source from automatically closing unite buffer when action is
+" taken
 call unite#custom#profile('source/vimgrep', 'context', {
       \ 'no_quit' : 1,
-      \ 'immediately' : 1,
       \ })
 " Use fuzzy matching
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " Sort search results (not sorted by default with fuzzy matching)
 call unite#filters#sorter_default#use(['sorter_rank'])
-" Use context matcher for file source to allow wildcards
+" Use context matcher for file source to allow standard vim wildcards
 call unite#custom#source('file', 'matchers', 'matcher_context')
 
 " Unite custom settings callback

@@ -436,7 +436,7 @@ set gdefault
 " Use <C-L> to clear last search hilight
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 " Use very magic regular expressions for search and replace
-cnoremap %s/ %smagic/
+cnoremap %s/ %smagic/\v
 
 " PERFORMANCE
 " ==============================================================================

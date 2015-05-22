@@ -412,20 +412,16 @@ set splitright
 set statusline=%t
 " Filetype
 set statusline+=\ %y
-" Buffer number
-set statusline+=\ #%n
 " Separator
 set statusline+=%=
 " Modified
 set statusline+=%3m
-" Line number
-set statusline+=\ %3l:
+" Line number of total
+set statusline+=\ line\ %l/%L,
 " Column number
-set statusline+=%c
+set statusline+=\ column\ %c
 " Percentage of file
-set statusline+=\ %P
-" Total lines
-set statusline+=\ (%L)
+set statusline+=\ (%p%%)
 
 " SEARCH
 " ==============================================================================

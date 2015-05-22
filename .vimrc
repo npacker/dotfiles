@@ -417,9 +417,9 @@ set statusline+=%=
 " Modified
 set statusline+=%3m
 " Line number of total
-set statusline+=\ line\ %l/%L,
+set statusline+=\ L%l/%L:
 " Column number
-set statusline+=\ column\ %c
+set statusline+=C%c
 " Percentage of file
 set statusline+=\ (%p%%)
 

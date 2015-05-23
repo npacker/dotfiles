@@ -416,12 +416,14 @@ set statusline+=\ %y
 set statusline+=%=
 " Modified
 set statusline+=%3m
-" Line number of total
-set statusline+=\ %l/%L:
+" Line number
+set statusline+=\ %l:
 " Column number
 set statusline+=%c
-" Percentage of file
-set statusline+=\ (%p%%)
+" Pertentage of file
+set statusline+=\ %p%%
+" Total lines of file
+set statusline+=\ (%L)
 
 " SEARCH
 " ==============================================================================

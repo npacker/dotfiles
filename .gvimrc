@@ -13,8 +13,6 @@ set lines=48
 set columns=84
 " Set screen height buffer
 set guiheadroom=0
-" Use console dialogs
-set guioptions+=c
 " Remove menu bar
 set guioptions-=m
 " Remove toolbar

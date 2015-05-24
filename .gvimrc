@@ -5,10 +5,12 @@ if has("gui_win32")
   set guifont=Consolas:h10:cDEFAULT
 endif
 
+" Function for setting the cursor line number color
 function! SetCursorLineColor()
   highlight CursorLineNr guifg=#657b83
 endfunction
 
+" Autocommands when changing color scheme
 augroup ColorSchemeSettings
   autocmd!
   autocmd ColorScheme * call SetCursorLineColor()

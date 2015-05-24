@@ -409,7 +409,7 @@ set splitright
 " STATUSLINE
 " ==============================================================================
 " Current mode
-set statusline=%1*\ %{StatuslineMode()}\ %0*
+set statusline=%1*\ %{StatuslineMode()}\ %*
 " Filename tail
 set statusline+=\ %t
 " Filetype

@@ -440,6 +440,8 @@ function! StatuslineMode()
     return "VISUAL-LINE"
   elseif mode ==# ""
     return "VISUAL-BLOCK"
+  else
+    return string(mode)
   endif
 endfunction
 
@@ -470,7 +472,7 @@ augroup StatusLine
   autocmd!
   autocmd InsertEnter * call SetStatusLineColorInsert(v:insertmode)
   autocmd InsertLeave * call SetStatusLineColorNormal()
-  autocmd CursorHold * call SetStatusLineColorNormal()
+  autocmd CursorHold  * call SetStatusLineColorNormal()
 augroup END
 
 call SetStatusLineColorNormal()

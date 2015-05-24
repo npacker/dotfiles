@@ -374,8 +374,8 @@ set shortmess+=I
 set number
 " Always show command bar
 set showcmd
-" Always show edit mode
-set showmode
+" Don't show mode in command bar
+set noshowmode
 " Highlight the currnet line
 set cursorline
 " Always show status line
@@ -408,8 +408,10 @@ set splitright
 
 " STATUSLINE
 " ==============================================================================
+" Current mode
+set statusline=%1*\ %{StatuslineMode()}\ %0*
 " Filename tail
-set statusline=%t
+set statusline+=\ %t
 " Filetype
 set statusline+=\ %y
 " Separator
@@ -417,13 +419,61 @@ set statusline+=%=
 " Modified
 set statusline+=%3m
 " Line number
-set statusline+=\ %l:
+set statusline+=\ %3l:
 " Column number
-set statusline+=%c
+set statusline+=%-2c
 " Pertentage of file
-set statusline+=\ %p%%
-" Total lines of file
-set statusline+=\ (%L)
+set statusline+=\ %p%%\ %*
+
+function! StatuslineMode()
+  let mode = mode()
+
+  if mode ==# "n"
+    return "NORMAL"
+  elseif mode ==# "i"
+    return "INSERT"
+  elseif mode ==# "R"
+    return "REPLACE"
+  elseif mode ==# "v"
+    return "VISUAL"
+  elseif mode ==# "V"
+    return "VISUAL-LINE"
+  elseif mode ==# ""
+    return "VISUAL-BLOCK"
+  endif
+endfunction
+
+function! SetStatusLineColorInsert(insertmode)
+  if a:insertmode ==# "i"
+    highlight User1 ctermfg=15 ctermbg=2
+  elseif a:insertmode ==# "r"
+    highlight User1 ctermfg=15 ctermbg=1
+  endif
+endfunction
+
+function! SetStatusLineColorNormal()
+  set updatetime=4000
+  highlight User1 ctermfg=15 ctermbg=4
+endfunction
+
+function! SetStatusLineColorVisual()
+  set updatetime=0
+  highlight User1 ctermfg=15 ctermbg=5
+endfunction
+
+vnoremap <silent><expr> <SID>SetStatusLineColorVisual SetStatusLineColorVisual()
+nnoremap <silent><script> v v<SID>SetStatusLineColorVisual
+nnoremap <silent><script> V V<SID>SetStatusLineColorVisual
+nnoremap <silent><script> <C-V> <C-V><SID>SetStatusLineColorVisual
+
+augroup StatusLine
+  autocmd!
+  autocmd InsertEnter * call SetStatusLineColorInsert(v:insertmode)
+  autocmd InsertLeave * call SetStatusLineColorNormal()
+  autocmd CursorHold * call SetStatusLineColorNormal()
+augroup END
+
+call SetStatusLineColorNormal()
 
 " SEARCH
 " ==============================================================================

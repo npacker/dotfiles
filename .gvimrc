@@ -5,8 +5,17 @@ if has("gui_win32")
   set guifont=Consolas:h10:cDEFAULT
 endif
 
+function! SetCursorLineColor()
+  highlight CursorLineNr guifg=#657b83
+endfunction
+
+augroup ColorSchemeSettings
+  autocmd!
+  autocmd ColorScheme * call SetCursorLineColor()
+augroup END
+
 " Set cursor line number
-highlight CursorLineNr guifg=#657b83
+call SetCursorLineColor()
 " Set initial window height
 set lines=48
 " Set initial window width

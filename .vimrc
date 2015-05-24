@@ -429,6 +429,7 @@ function! StatuslineMode()
   let mode = mode()
 
   if mode ==# "n"
+    call SetStatusLineColorNormal()
     return "NORMAL"
   elseif mode ==# "i"
     return "INSERT"
@@ -440,8 +441,9 @@ function! StatuslineMode()
     return "VISUAL-LINE"
   elseif mode ==# ""
     return "VISUAL-BLOCK"
-  else
-    return string(mode)
+  elseif mode ==# "c"
+    call SetStatusLineColorCommand()
+    return "COMMAND"
   endif
 endfunction
 
@@ -456,6 +458,10 @@ endfunction
 function! SetStatusLineColorNormal()
   set updatetime=4000
   highlight User1 ctermfg=15 ctermbg=4
+endfunction
+
+function! SetStatusLineColorCommand()
+  highlight User1 ctermfg=15 ctermbg=6
 endfunction
 
 function! SetStatusLineColorVisual()

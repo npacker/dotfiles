@@ -425,6 +425,7 @@ set statusline+=%-2c
 " Pertentage of file
 set statusline+=\ %p%%\ %*
 
+" Get full text representation of editor mode
 function! StatuslineMode()
   let mode = mode()
 
@@ -445,6 +446,7 @@ function! StatuslineMode()
   endif
 endfunction
 
+" Set statusline mode color based on insert or replace mode
 function! SetStatusLineColorInsert(insertmode)
   if a:insertmode ==# "i"
     highlight User1 ctermfg=15 ctermbg=2
@@ -453,21 +455,27 @@ function! SetStatusLineColorInsert(insertmode)
   endif
 endfunction
 
+" Set statusline color when entering normal mode
+" Reset updatetime in case leaving visual mode
 function! SetStatusLineColorNormal()
   set updatetime=4000
   highlight User1 ctermfg=15 ctermbg=4
 endfunction
 
+" Set statusline color when entering visual mode
+" Set updatetime to 0 for instant color update
 function! SetStatusLineColorVisual()
   set updatetime=0
   highlight User1 ctermfg=15 ctermbg=5
 endfunction
 
+" Set mappings to detect entering visual mode
 vnoremap <silent><expr> <SID>SetStatusLineColorVisual SetStatusLineColorVisual()
 nnoremap <silent><script> v v<SID>SetStatusLineColorVisual
 nnoremap <silent><script> V V<SID>SetStatusLineColorVisual
 nnoremap <silent><script> <C-V> <C-V><SID>SetStatusLineColorVisual
 
+" Set auto commands for entering and leaving insert mode
 augroup StatusLine
   autocmd!
   autocmd InsertEnter * call SetStatusLineColorInsert(v:insertmode)
@@ -475,6 +483,7 @@ augroup StatusLine
   autocmd CursorHold  * call SetStatusLineColorNormal()
 augroup END
 
+" Set default statusline color
 call SetStatusLineColorNormal()
 
 " SEARCH

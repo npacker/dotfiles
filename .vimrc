@@ -374,8 +374,8 @@ set shortmess+=I
 set number
 " Always show command bar
 set showcmd
-" Don't show mode in command bar
-set noshowmode
+" Show mode in command bar
+set showmode
 " Highlight the currnet line
 set cursorline
 " Always show status line
@@ -408,10 +408,8 @@ set splitright
 
 " STATUSLINE
 " ==============================================================================
-" Current mode
-set statusline=%1*\ %{StatuslineMode()}\ %*
 " Filename tail
-set statusline+=\ %t
+set statusline=\ %t
 " Filetype
 set statusline+=\ %y
 " Separator
@@ -424,67 +422,6 @@ set statusline+=\ %3l:
 set statusline+=%-2c
 " Pertentage of file
 set statusline+=\ %p%%\ %*
-
-" Get full text representation of editor mode
-function! StatuslineMode()
-  let mode = mode()
-
-  if mode ==# "n"
-    return "NORMAL"
-  elseif mode ==# "i"
-    return "INSERT"
-  elseif mode ==# "R"
-    return "REPLACE"
-  elseif mode ==# "v"
-    return "VISUAL"
-  elseif mode ==# "V"
-    return "VISUAL-LINE"
-  elseif mode ==# ""
-    return "VISUAL-BLOCK"
-  elseif mode ==# "c"
-    return "COMMAND"
-  endif
-endfunction
-
-" Set statusline mode color based on insert or replace mode
-function! SetStatusLineColorInsert(insertmode)
-  if a:insertmode ==# "i"
-    highlight User1 ctermfg=15 ctermbg=2
-  elseif a:insertmode ==# "r"
-    highlight User1 ctermfg=15 ctermbg=1
-  endif
-endfunction
-
-" Set statusline color when entering normal mode
-" Reset updatetime in case leaving visual mode
-function! SetStatusLineColorNormal()
-  set updatetime=4000
-  highlight User1 ctermfg=15 ctermbg=4
-endfunction
-
-" Set statusline color when entering visual mode
-" Set updatetime to 0 for instant color update
-function! SetStatusLineColorVisual()
-  set updatetime=0
-  highlight User1 ctermfg=15 ctermbg=5
-endfunction
-
-" Set mappings to detect entering visual mode
-vnoremap <silent><expr> <SID>SetStatusLineColorVisual SetStatusLineColorVisual()
-nnoremap <silent><script> v v<SID>SetStatusLineColorVisual
-nnoremap <silent><script> V V<SID>SetStatusLineColorVisual
-nnoremap <silent><script> <C-V> <C-V><SID>SetStatusLineColorVisual
-
-" Set auto commands for entering and leaving insert mode
-augroup StatusLine
-  autocmd!
-  autocmd InsertEnter * call SetStatusLineColorInsert(v:insertmode)
-  autocmd InsertLeave * call SetStatusLineColorNormal()
-  autocmd CursorHold  * call SetStatusLineColorNormal()
-augroup END
-
-" Set default statusline color
-call SetStatusLineColorNormal()
 
 " SEARCH
 " ==============================================================================

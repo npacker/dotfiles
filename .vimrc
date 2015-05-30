@@ -44,9 +44,6 @@ Plugin 'Lokaltog/vim-easymotion'
 " Use <Tab> for autocompletion
 Plugin 'ervandew/supertab'
 
-" Emmet HTML editing
-Plugin 'mattn/emmet-vim'
-
 " Puppet syntax support
 Plugin 'puppetlabs/puppet-syntax-vim'
 
@@ -67,9 +64,6 @@ Plugin 'jelera/vim-javascript-syntax'
 " PHP syntax improved
 Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
-
-" Racket syntax support
-Plugin 'wlangstroth/vim-racket'
 
 " C syntax improved
 Plugin 'justinmk/vim-syntax-extra'

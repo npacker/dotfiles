@@ -295,13 +295,12 @@ let g:EasyMotion_startofline = 0
 map <Space> <Leader>
 " Map EasyMotion prefix to <Leader>
 map <Leader> <Plug>(easymotion-prefix)
-" EasyMotion for downward line motion
-map <Leader>j <Plug>(easymotion-j)
-" EasyMotion for upward line motion
-map <Leader>k <Plug>(easymotion-k)
+" Character search
+nmap s <Plug>(easymotion-s)
+nmap t <Plug>(easymotion-t)
 " Two character search
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
+nmap <Leader>s <Plug>(easymotion-s2)
+nmap <Leader>t <Plug>(easymotion-t2)
 " EasyMotion search
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)

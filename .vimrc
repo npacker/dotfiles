@@ -104,6 +104,8 @@ set fileformats=unix,mac,dos
 " ------------------------------------------------------------------------------
 " Don't trigger on PHP close tag in comments
 let php_parent_error_open = 1
+" Sane indenting for switch
+let g:PHP_vintage_case_default_indent = 1
 
 " Customize PHP syntax highlighting
 function! PhpSyntaxOverride()

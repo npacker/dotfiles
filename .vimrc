@@ -62,6 +62,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'jelera/vim-javascript-syntax'
 
 " PHP syntax improved
+Plugin '2072/PHP-Indenting-for-Vim'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 

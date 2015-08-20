@@ -175,7 +175,7 @@ function! s:unite_settings()
   " Unmap unite <C-P> mapping
   nunmap <buffer> <C-P>
   " Unmap unite <Backspace> exit mapping
-  iunmap <Backspace>
+  iunmap <buffer> <Backspace>
   " Press escape to exit unite buffers
   nmap <buffer> <Esc>   <Plug>(unite_all_exit)
   " Press <Tab> or <S-Tab> to cycle through results

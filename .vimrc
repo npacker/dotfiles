@@ -44,6 +44,9 @@ Plugin 'Lokaltog/vim-easymotion'
 " Use <Tab> for autocompletion
 Plugin 'ervandew/supertab'
 
+" Syntax and style checking
+Plugin 'scrooloose/syntastic'
+
 " Puppet syntax support
 Plugin 'puppetlabs/puppet-syntax-vim'
 
@@ -56,9 +59,11 @@ Plugin 'cakebaker/scss-syntax.vim'
 " CSS3 syntax support
 Plugin 'JulesWang/css.vim'
 Plugin 'npacker/vim-css3complete'
+Plugin 'hail2u/vim-css3-syntax'
 
 " JavaScript syntax improved
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'npacker/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 
 " PHP syntax improved
@@ -83,8 +88,9 @@ filetype plugin indent on
 " ==============================================================================
 augroup FiletypeSettings
   autocmd!
-  autocmd BufNewFile,BufReadPre *.inc set filetype=php
+  autocmd BufNewFile,BufReadPre *.inc     set filetype=php
   autocmd BufNewFile,BufReadPre *.install set filetype=php
+  autocmd BufNewFile,BufReadPre *.test    set filetype=php
 augroup END
 
 " ENCODING
@@ -101,12 +107,21 @@ set fileformats=unix,mac,dos
 " PLUGIN CONFIG
 " ==============================================================================
 
+" Syntastic
+" ------------------------------------------------------------------------------
+let g:syntastic_error_symbol = '×'
+let g:syntastic_warning_symbol = '×'
+
 " PHP Syntax
 " ------------------------------------------------------------------------------
 " Don't trigger on PHP close tag in comments
 let php_parent_error_open = 1
-" Sane indenting for switch
+" Ignore short tags
+let php_noShortTags = 1
+" Sane PHP switch indentation
 let g:PHP_vintage_case_default_indent = 1
+" Remove DOS line-endings when unix file encoding set
+let g:PHP_RemoveCRwhenUnix = 1
 
 " Customize PHP syntax highlighting
 function! PhpSyntaxOverride()
@@ -217,7 +232,7 @@ command Find Unite
 " SuperTab
 " ------------------------------------------------------------------------------
 " Highlight the longest result
-let g:SuperTabLongestHighlight = 1
+" let g:SuperTabLongestHighlight = 1
 " Type more characters to narrow longest match
 let g:SuperTabLongestEnhanced = 1
 " Cancel completion mode, preserving current text
@@ -264,6 +279,7 @@ let g:multi_cursor_normal_maps = {
       \ 't' : 1,
       \ 'T' : 1,
       \ 'x' : 1,
+      \ '"' : 1,
       \ }
 
 " Disable the search key while in multi select mode
@@ -327,6 +343,8 @@ set softtabstop=2
 set backspace=indent,eol,start
 " Auto indentation
 set autoindent
+" Smart indentation
+set smartindent
 " Disable visual text wrap
 set nowrap
 " 80 column text width
@@ -339,8 +357,8 @@ set formatoptions+=r
 set formatoptions+=o
 " Allow comment formatting with gq
 set formatoptions+=q
-" Use second line of paragraph for indentation
-set formatoptions+=2
+" Recognize numbered lists
+set formatoptions+=n
 " Remove comment leader when joining lines
 set formatoptions+=j
 
@@ -363,6 +381,12 @@ try
 catch
   colorscheme default
 endtry
+
+function! SetSignColumnColor()
+  highlight clear SignColumn
+endfunction
+
+call SetSignColumnColor()
 
 " UI
 " ==============================================================================

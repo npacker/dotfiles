@@ -111,6 +111,10 @@ set fileformats=unix,mac,dos
 " ------------------------------------------------------------------------------
 let g:syntastic_error_symbol = '×'
 let g:syntastic_warning_symbol = '×'
+let g:syntastic_style_error_symbol = '×'
+let g:syntastic_style_warning_symbol = '×'
+" Use Drupal standard for PHP CodeSniffer
+let g:syntastic_php_phpcs_args = '--standard=Drupal'
 
 " PHP Syntax
 " ------------------------------------------------------------------------------
@@ -164,11 +168,13 @@ call unite#custom#profile('default', 'context', {
       \ 'unique' : 1,
       \ 'winheight' : 10,
       \ })
+
 " Prevent vimgrep source from automatically closing unite buffer when action is
 " taken
 call unite#custom#profile('source/vimgrep', 'context', {
       \ 'no_quit' : 1,
       \ })
+
 " Use fuzzy matching
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " Sort search results (not sorted by default with fuzzy matching)
@@ -219,11 +225,13 @@ nnoremap <silent> <C-P> :<C-U>Unite
       \ directory/new
       \ -buffer-name=goto
       \ <CR>
+
 " Custom Buffers command to list open buffers
 command Buffers Unite
       \ buffer
       \ -toggle
       \ -buffer-name=buffers
+
 " Custom Find command to invoke vimgrep
 command Find Unite
       \ vimgrep
@@ -244,7 +252,7 @@ let g:SuperTabContextDefaultCompletionType = '<C-P>'
 " Available completion contexts
 let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
 " Discover omnifunc, if set
-let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<C-X><C-O>"]
+let g:SuperTabContextDiscoverDiscovery = ['&omnifunc:<C-X><C-O>']
 
 " Call SuperTab chaining function
 augroup SuperTabSettings
@@ -416,6 +424,8 @@ set completeopt=longest,menu
 set diffopt=filler,vertical
 " Display at least one line between cursor and horizontal window borders
 set scrolloff=1
+" Amount of screen to scroll when reaching last line
+set scrolljump=-100
 " Display unwanted characters
 set list
 set listchars=tab:›\ ,trail:·,nbsp:+
@@ -437,7 +447,7 @@ set statusline+=\ %y
 " Separator
 set statusline+=%=
 " Modified
-set statusline+=%3m
+set statusline+=\ %3m
 " Line number
 set statusline+=\ %3l:
 " Column number

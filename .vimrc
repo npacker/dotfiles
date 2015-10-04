@@ -115,6 +115,8 @@ let g:syntastic_style_error_symbol = '×'
 let g:syntastic_style_warning_symbol = '×'
 " Use Drupal standard for PHP CodeSniffer
 let g:syntastic_php_phpcs_args = '--standard=Drupal'
+" Use make as C checker
+let g:syntastic_c_checkers = ['make', 'gcc']
 
 " PHP Syntax
 " ------------------------------------------------------------------------------

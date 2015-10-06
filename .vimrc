@@ -157,7 +157,6 @@ let g:unite_source_rec_max_cache_files = 100000
 call unite#custom#profile('default', 'context', {
       \ 'auto_resize' : 1,
       \ 'hide_source_names' : 1,
-      \ 'immediately' : 1,
       \ 'prompt' : '› ',
       \ 'prompt_visible' : 1,
       \ 'start_insert' : 1,
@@ -416,6 +415,8 @@ set completeopt=longest,menu
 set diffopt=filler,vertical
 " Display at least one line between cursor and horizontal window borders
 set scrolloff=1
+" Amount of screen to scroll when reacing last line
+set scrolljump=-100
 " Display unwanted characters
 set list
 set listchars=tab:›\ ,trail:·,nbsp:+

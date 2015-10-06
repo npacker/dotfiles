@@ -111,6 +111,12 @@ set fileformats=unix,mac,dos
 " ------------------------------------------------------------------------------
 let g:syntastic_error_symbol = '×'
 let g:syntastic_warning_symbol = '×'
+let g:syntastic_style_error_symbol = '×'
+let g:syntastic_style_warning_symbol = '×'
+" Use Drupal standard for PHP CodeSniffer
+let g:syntastic_php_phpcs_args = '--standard=Drupal'
+" Use make as C checker
+let g:syntastic_c_checkers = ['make', 'gcc']
 
 " PHP Syntax
 " ------------------------------------------------------------------------------
@@ -252,7 +258,7 @@ let g:SuperTabContextDefaultCompletionType = '<C-P>'
 " Available completion contexts
 let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
 " Discover omnifunc, if set
-let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<C-X><C-O>"]
+let g:SuperTabContextDiscoverDiscovery = ['&omnifunc:<C-X><C-O>']
 
 " Call SuperTab chaining function
 augroup SuperTabSettings
@@ -424,7 +430,7 @@ set completeopt=longest,menu
 set diffopt=filler,vertical
 " Display at least one line between cursor and horizontal window borders
 set scrolloff=1
-" Amount of screen to scroll when reacing last line
+" Amount of screen to scroll when reaching last line
 set scrolljump=-100
 " Display unwanted characters
 set list
@@ -447,7 +453,7 @@ set statusline+=\ %y
 " Separator
 set statusline+=%=
 " Modified
-set statusline+=%3m
+set statusline+=\ %3m
 " Line number
 set statusline+=\ %3l:
 " Column number

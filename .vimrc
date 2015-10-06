@@ -174,8 +174,13 @@ call unite#custom#profile('source/vimgrep', 'context', {
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " Sort search results (not sorted by default with fuzzy matching)
 call unite#filters#sorter_default#use(['sorter_rank'])
+
 " Use context matcher for file source to allow standard vim wildcards
-call unite#custom#source('file', 'matchers', 'matcher_context')
+call unite#custom#source('file', 'matchers', [
+      \ 'matcher_context',
+      \ 'matcher_hide_hidden_files',
+      \ 'matcher_hide_current_file'
+      \ ])
 
 " Unite custom settings callback
 function! s:unite_settings()

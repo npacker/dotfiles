@@ -163,11 +163,13 @@ call unite#custom#profile('default', 'context', {
       \ 'unique' : 1,
       \ 'winheight' : 10,
       \ })
+
 " Prevent vimgrep source from automatically closing unite buffer when action is
 " taken
 call unite#custom#profile('source/vimgrep', 'context', {
       \ 'no_quit' : 1,
       \ })
+
 " Use fuzzy matching
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " Sort search results (not sorted by default with fuzzy matching)
@@ -218,11 +220,13 @@ nnoremap <silent> <C-P> :<C-U>Unite
       \ directory/new
       \ -buffer-name=goto
       \ <CR>
+
 " Custom Buffers command to list open buffers
 command Buffers Unite
       \ buffer
       \ -toggle
       \ -buffer-name=buffers
+
 " Custom Find command to invoke vimgrep
 command Find Unite
       \ vimgrep

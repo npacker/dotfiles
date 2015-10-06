@@ -180,6 +180,8 @@ call unite#custom#profile('source/vimgrep', 'context', {
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " Sort search results (not sorted by default with fuzzy matching)
 call unite#filters#sorter_default#use(['sorter_rank'])
+" Use filename
+call unite#filters#converter_default#use(['converter_tail'])
 
 " Use context matcher for file source to allow standard vim wildcards
 call unite#custom#source('file', 'matchers', [

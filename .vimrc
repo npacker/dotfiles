@@ -150,6 +150,8 @@ let g:unite_force_overwrite_statusline = 0
 let g:unite_source_rec_min_cache_files = 10
 " Cache up to 100,000 files
 let g:unite_source_rec_max_cache_files = 100000
+" Allow more space for file/directory separation converter
+let g:unite_converter_file_directory_width = 80
 
 " Set default options for all unite buffers:
 " - auto-resize unite buffer

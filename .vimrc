@@ -180,14 +180,23 @@ call unite#custom#profile('source/vimgrep', 'context', {
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " Sort search results (not sorted by default with fuzzy matching)
 call unite#filters#sorter_default#use(['sorter_rank'])
-" Use filename
-call unite#filters#converter_default#use(['converter_tail'])
 
-" Use context matcher for file source to allow standard vim wildcards
+" Use matcher context for file source, hide hidden files
 call unite#custom#source('file', 'matchers', [
       \ 'matcher_context',
-      \ 'matcher_hide_hidden_files',
-      \ 'matcher_hide_current_file'
+      \ 'matcher_hide_hidden_files'
+      \ ])
+
+" Match filenames with git source, hide hiden files
+call unite#custom#source('file_rec/git', 'matchers', [
+      \ 'converter_tail',
+      \ 'matcher_default',
+      \ 'matcher_hide_hidden_files'
+      \ ])
+
+" Separate file and directory of all git source results
+call unite#custom#source('file_rec/git', 'converters', [
+      \ 'converter_file_directory'
       \ ])
 
 " Unite custom settings callback

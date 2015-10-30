@@ -47,6 +47,9 @@ Plugin 'ervandew/supertab'
 " Syntax and style checking
 Plugin 'scrooloose/syntastic'
 
+" Improved commenting motions
+Plugin 'scrooloose/nerdcommenter'
+
 " Puppet syntax support
 Plugin 'puppetlabs/puppet-syntax-vim'
 
@@ -70,6 +73,9 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin '2072/PHP-Indenting-for-Vim'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
+
+" Python syntax improved
+Plugin 'hynek/vim-python-pep8-indent'
 
 " C syntax improved
 Plugin 'justinmk/vim-syntax-extra'
@@ -355,6 +361,11 @@ omap / <Plug>(easymotion-tn)
 " EasyMotion next/prev
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
+
+" Nerdcommeter
+" ==============================================================================
+" Use leading space after comment delimiter
+let NERDSpaceDelims = 1
 
 " FORMATTING
 " ==============================================================================

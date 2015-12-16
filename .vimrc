@@ -270,14 +270,6 @@ command Find Unite
 let g:SuperTabLongestEnhanced = 1
 " Cancel completion mode, preserving current text
 let g:SuperTabCrMapping = 1
-" Use context to determine type of autocomplete
-let g:SuperTabDefaultCompletionType = "context"
-" Fall back to standard keyword completion
-let g:SuperTabContextDefaultCompletionType = '<C-P>'
-" Available completion contexts
-let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-" Discover omnifunc, if set
-let g:SuperTabContextDiscoverDiscovery = ['&omnifunc:<C-X><C-O>']
 
 " Call SuperTab chaining function
 augroup SuperTabSettings

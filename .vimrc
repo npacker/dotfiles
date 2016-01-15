@@ -56,13 +56,13 @@ Plugin 'puppetlabs/puppet-syntax-vim'
 " HTML5 syntax support
 Plugin 'othree/html5.vim'
 
-" Sass syntax support
-Plugin 'cakebaker/scss-syntax.vim'
-
 " CSS3 syntax support
 Plugin 'JulesWang/css.vim'
 Plugin 'npacker/vim-css3complete'
 Plugin 'hail2u/vim-css3-syntax'
+
+" Sass syntax support
+Plugin 'cakebaker/scss-syntax.vim'
 
 " JavaScript syntax improved
 Plugin 'othree/javascript-libraries-syntax.vim'
@@ -75,6 +75,7 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 
 " Python syntax improved
+Plugin 'hdima/python-syntax'
 Plugin 'hynek/vim-python-pep8-indent'
 
 " C syntax improved
@@ -121,8 +122,12 @@ let g:syntastic_style_error_symbol = '×'
 let g:syntastic_style_warning_symbol = '×'
 " Use Drupal standard for PHP CodeSniffer
 let g:syntastic_php_phpcs_args = '--standard=Drupal'
+" Disable some pylint warnings
+let g:syntastic_python_pylint_args = '--disable=W0142,W0401,W0614'
 " Use make as C checker
 let g:syntastic_c_checkers = ['make', 'gcc']
+" Use scss_lint as Sass checker
+let g:syntastic_scss_checkers = ['scss_lint', 'sass']
 
 " PHP Syntax
 " ------------------------------------------------------------------------------
@@ -244,7 +249,7 @@ augroup END
 " Custom Unite mappings:
 " List files in current directory, list git repository files recursively
 nnoremap <silent> <C-P> :<C-U>Unite
-      \ file_rec/git:--cached:--exclude-standard:--other
+      \ file_rec/git:--cached:--exclude-standard:--exclude=vendor/gem:--other
       \ file
       \ file/new
       \ directory/new
@@ -280,7 +285,7 @@ augroup END
 " If omnicompletion is available, chain it with keyword completion
 function UserSuperTabChain()
   if &omnifunc != ''
-    call SuperTabChain(&omnifunc, '<C-P>')
+    call SuperTabChain(&omnifunc, '<C-X><C-P>')
   endif
 endfunction
 
@@ -357,7 +362,7 @@ map  N <Plug>(easymotion-prev)
 " Nerdcommeter
 " ==============================================================================
 " Use leading space after comment delimiter
-let NERDSpaceDelims = 1
+let NERDSpaceDelims=1
 
 " FORMATTING
 " ==============================================================================
@@ -440,6 +445,8 @@ set showmatch
 set noerrorbells
 " Disable visual bell
 set novisualbell
+" Wrap searches around the end of the files
+set wrapscan
 " Autocomplete, match longest substring, always show menu
 set completeopt=longest,menu
 " Display diff filler lines, always vertical split

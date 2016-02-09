@@ -153,6 +153,14 @@ augroup PhpSyntaxOverride
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
+" CSS/SASS Syntax
+" ------------------------------------------------------------------------------
+" Fix highlighting of some properties with dashes
+augroup CSS3SyntaxOverride
+  autocmd!
+  autocmd FileType css,scss setlocal iskeyword+=-
+augroup END
+
 " Unite
 " ------------------------------------------------------------------------------
 " We'll set the statusline ourselves
@@ -417,11 +425,10 @@ catch
   colorscheme default
 endtry
 
-function! SetSignColumnColor()
-  highlight clear SignColumn
-endfunction
-
-call SetSignColumnColor()
+" Set color of the Syntastic warning marker to yellow
+highlight SyntasticWarningSign ctermfg=1 guifg=Red
+" Clear highlighting default on sign column
+highlight clear SignColumn
 
 " UI
 " ==============================================================================

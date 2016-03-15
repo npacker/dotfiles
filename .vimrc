@@ -20,9 +20,6 @@ Plugin 'gmarik/Vundle.vim'
 " Use the the . operator with plugin commands
 Plugin 'tpope/vim-repeat'
 
-" Wrapper for Git on Vim commandline
-Plugin 'tpope/vim-fugitive'
-
 " Add, change, and delete delimiters
 Plugin 'tpope/vim-surround'
 
@@ -31,9 +28,6 @@ Plugin 'Shougo/vimproc.vim'
 
 " Unified search interface
 Plugin 'Shougo/unite.vim'
-
-" Expand the current visual selection
-Plugin 'terryma/vim-expand-region'
 
 " Edit several things at once with multiple cursors
 Plugin 'terryma/vim-multiple-cursors'
@@ -49,6 +43,9 @@ Plugin 'scrooloose/syntastic'
 
 " Improved commenting motions
 Plugin 'scrooloose/nerdcommenter'
+
+" Always match surrounding parenthesis
+Plugin 'justinmk/vim-matchparenalways'
 
 " Puppet syntax support
 Plugin 'puppetlabs/puppet-syntax-vim'
@@ -187,7 +184,6 @@ call unite#custom#profile('default', 'context', {
       \ 'prompt' : '› ',
       \ 'prompt_visible' : 1,
       \ 'start_insert' : 1,
-      \ 'unique' : 1,
       \ 'winheight' : 10,
       \ })
 
@@ -197,27 +193,25 @@ call unite#custom#profile('source/vimgrep', 'context', {
       \ 'no_quit' : 1,
       \ })
 
-" Use fuzzy matching
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " Sort search results (not sorted by default with fuzzy matching)
 call unite#filters#sorter_default#use(['sorter_rank'])
 
 " Use matcher context for file source, hide hidden files
 call unite#custom#source('file', 'matchers', [
       \ 'matcher_context',
-      \ 'matcher_hide_hidden_files'
+      \ 'matcher_hide_current_file',
+      \ 'matcher_hide_hidden_files',
       \ ])
 
 " Match filenames with git source, hide hiden files
 call unite#custom#source('file_rec/git', 'matchers', [
-      \ 'converter_tail',
-      \ 'matcher_default',
-      \ 'matcher_hide_hidden_files'
+      \ 'matcher_fuzzy',
+      \ 'matcher_hide_current_file',
+      \ 'matcher_hide_hidden_files',
       \ ])
 
-" Separate file and directory of all git source results
 call unite#custom#source('file_rec/git', 'converters', [
-      \ 'converter_file_directory'
+      \ 'converter_file_directory',
       \ ])
 
 " Unite custom settings callback
@@ -331,16 +325,6 @@ function! Multiple_cursors_after()
   omap / <Plug>(easymotion-tn)
 endfunction
 
-" Vim Expand Region
-" ------------------------------------------------------------------------------
-let g:expand_region_text_objects = {
-      \ 'i]' : 1,
-      \ 'ib' : 1,
-      \ 'iB' : 1,
-      \ 'it' : 1,
-      \ 'at' : 1,
-      \ }
-
 " Vim EasyMotion
 " ------------------------------------------------------------------------------
 " Prompt character
@@ -368,7 +352,7 @@ map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
 " Nerdcommeter
-" ==============================================================================
+" ------------------------------------------------------------------------------
 " Use leading space after comment delimiter
 let NERDSpaceDelims=1
 
@@ -480,6 +464,10 @@ set splitright
 set statusline=\ %t
 " Filetype
 set statusline+=\ %y
+set statusline+=\ %#StatusLineNC#
+set statusline+=\ %LL
+set statusline+=\ %*
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 " Separator
 set statusline+=%=
 " Modified

@@ -75,6 +75,9 @@ Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'hdima/python-syntax'
 Plugin 'hynek/vim-python-pep8-indent'
 
+" Papyrus syntax support
+Plugin 'sirtaj/vim-papyrus'
+
 " C syntax improved
 Plugin 'justinmk/vim-syntax-extra'
 
@@ -157,6 +160,11 @@ augroup CSS3SyntaxOverride
   autocmd!
   autocmd FileType css,scss setlocal iskeyword+=-
 augroup END
+
+" Papyrus Syntax
+" ------------------------------------------------------------------------------
+" Skyrim path
+let g:skyrim_install_path = 'E:\Steam\SteamApps\common\skyrim'
 
 " Unite
 " ------------------------------------------------------------------------------

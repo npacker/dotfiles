@@ -171,11 +171,16 @@ let g:skyrim_install_path = 'E:\Steam\SteamApps\common\skyrim'
 " We'll set the statusline ourselves
 let g:unite_force_overwrite_statusline = 0
 " Cache as few as 10 files
-let g:unite_source_rec_min_cache_files = 10
+" let g:unite_source_rec_min_cache_files = 10
 " Cache up to 100,000 files
-let g:unite_source_rec_max_cache_files = 100000
+let g:unite_source_rec_max_cache_files = 0
 " Allow more space for file/directory separation converter
 let g:unite_converter_file_directory_width = 80
+
+" Match using fuzzy string
+call unite#filters#matcher_default#use([
+      \ 'matcher_fuzzy',
+      \ ])
 
 " Set default options for all unite buffers:
 " - auto-resize unite buffer
@@ -191,6 +196,7 @@ call unite#custom#profile('default', 'context', {
       \ 'hide_source_names' : 1,
       \ 'prompt' : '› ',
       \ 'prompt_visible' : 1,
+      \ 'prompt_focus' : 1,
       \ 'start_insert' : 1,
       \ 'winheight' : 10,
       \ })
@@ -201,26 +207,38 @@ call unite#custom#profile('source/vimgrep', 'context', {
       \ 'no_quit' : 1,
       \ })
 
-" Sort search results (not sorted by default with fuzzy matching)
-call unite#filters#sorter_default#use(['sorter_rank'])
+" Only show unique candidates in the files profile
+call unite#custom#profile('files', 'context', {
+      \ 'unique' : 1,
+      \ })
 
-" Use matcher context for file source, hide hidden files
-call unite#custom#source('file', 'matchers', [
-      \ 'matcher_context',
-      \ 'matcher_hide_current_file',
-      \ 'matcher_hide_hidden_files',
+" Sort all candidates in the files profile
+call unite#custom#profile('files', 'filters', [
+      \ 'sorter_selecta',
       \ ])
 
-" Match filenames with git source, hide hiden files
+" Convert candidates to relative word before matching
 call unite#custom#source('file_rec/git', 'matchers', [
-      \ 'matcher_fuzzy',
-      \ 'matcher_hide_current_file',
-      \ 'matcher_hide_hidden_files',
+      \ 'converter_relative_word',
+      \ 'matcher_default',
       \ ])
 
+" Convert each git source match to the filename and parent directory
 call unite#custom#source('file_rec/git', 'converters', [
       \ 'converter_file_directory',
       \ ])
+
+" List files in current directory, list git repository files recursively
+nnoremap <silent> <leader>p :<C-U>Unite
+      \ -buffer-name=files
+      \ file_rec/git:--cached:--exclude=vendor/gem:--exclude=node_modules:--exclude-standard
+      \ file
+      \ <CR>
+
+" Custom Find command to invoke vimgrep
+command Find Unite
+      \ -buffer-name=find
+      \ vimgrep
 
 " Unite custom settings callback
 function! s:unite_settings()
@@ -255,27 +273,6 @@ augroup UniteSettings
   autocmd!
   autocmd FileType unite call s:unite_settings()
 augroup END
-
-" Custom Unite mappings:
-" List files in current directory, list git repository files recursively
-nnoremap <silent> <C-P> :<C-U>Unite
-      \ file_rec/git:--cached:--exclude-standard:--exclude=vendor/gem:--other
-      \ file
-      \ file/new
-      \ directory/new
-      \ -buffer-name=goto
-      \ <CR>
-
-" Custom Buffers command to list open buffers
-command Buffers Unite
-      \ buffer
-      \ -toggle
-      \ -buffer-name=buffers
-
-" Custom Find command to invoke vimgrep
-command Find Unite
-      \ vimgrep
-      \ -buffer-name=find
 
 " SuperTab
 " ------------------------------------------------------------------------------

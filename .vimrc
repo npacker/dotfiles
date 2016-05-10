@@ -78,6 +78,9 @@ Plugin 'hynek/vim-python-pep8-indent'
 " Papyrus syntax support
 Plugin 'sirtaj/vim-papyrus'
 
+" Java syntax improved
+Plugin 'npacker/vim-java-syntax-after'
+
 " C syntax improved
 Plugin 'justinmk/vim-syntax-extra'
 

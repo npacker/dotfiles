@@ -210,16 +210,6 @@ call unite#custom#profile('source/vimgrep', 'context', {
       \ 'no_quit' : 1,
       \ })
 
-" Only show unique candidates in the files profile
-call unite#custom#profile('files', 'context', {
-      \ 'unique' : 1,
-      \ })
-
-" Sort all candidates in the files profile
-call unite#custom#profile('files', 'filters', [
-      \ 'sorter_selecta',
-      \ ])
-
 " Convert candidates to relative word before matching
 call unite#custom#source('file_rec/git', 'matchers', [
       \ 'converter_relative_word',
@@ -231,15 +221,28 @@ call unite#custom#source('file_rec/git', 'converters', [
       \ 'converter_file_directory',
       \ ])
 
+" Only show unique candidates in the files profile
+call unite#custom#profile('files', 'context', {
+      \ 'unique' : 1,
+      \ })
+
+" Sort all candidates in the files profile
+call unite#custom#profile('files', 'sorters', [
+      \ 'sorter_selecta',
+      \ ])
+
 " List files in current directory, list git repository files recursively
 nnoremap <silent> <leader>p :<C-U>Unite
+      \ -profile-name=files
       \ -buffer-name=files
-      \ file_rec/git:--cached:--exclude=vendor/gem:--exclude=node_modules:--exclude-standard
       \ file
+      \ file_rec/git:--cached:--exclude=vendor/gem:--exclude=node_modules:--exclude-standard
+      \ file/new
       \ <CR>
 
 " Custom Find command to invoke vimgrep
 command Find Unite
+      \ -profile-name=find
       \ -buffer-name=find
       \ vimgrep
 

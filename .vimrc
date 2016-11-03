@@ -241,7 +241,7 @@ nnoremap <silent> <leader>p :<C-U>Unite
       \ <CR>
 
 " Custom Find command to invoke vimgrep
-command Find Unite
+command! Find Unite
       \ -profile-name=find
       \ -buffer-name=find
       \ vimgrep
@@ -296,7 +296,7 @@ augroup SuperTabSettings
 augroup END
 
 " If omnicompletion is available, chain it with keyword completion
-function UserSuperTabChain()
+function! UserSuperTabChain()
   if &omnifunc != ''
     call SuperTabChain(&omnifunc, '<C-X><C-P>')
   endif

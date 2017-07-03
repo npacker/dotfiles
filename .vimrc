@@ -482,6 +482,9 @@ set statusline+=\ %y
 set statusline+=\ %#StatusLineNC#
 set statusline+=\ %LL
 set statusline+=\ %*
+set statusline+=%{&fileformat=='unix'?'\ LF':''}
+set statusline+=%{&fileformat=='dos'?'\ CLRF':''}
+set statusline+=%{&fileformat=='mac'?'\ CR':''}
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 " Separator
 set statusline+=%=

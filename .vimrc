@@ -261,6 +261,8 @@ function! s:unite_settings()
   setlocal statusline=%t
   " Unmap unite <C-P> mapping
   nunmap <buffer> <C-P>
+  " Unmap unite <Tab> mapping
+  nunmap <buffer> <Tab>
   " Unmap unite <Backspace> exit mapping
   iunmap <buffer> <Backspace>
   " Press escape to exit unite buffers

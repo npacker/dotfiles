@@ -128,7 +128,7 @@ let g:syntastic_check_on_open = 1
 " Use Drupal standard for PHP CodeSniffer
 let g:syntastic_php_phpcs_args = '--standard=Drupal'
 " Disable some pylint warnings
-let g:syntastic_python_pylint_args = '--disable=W0142,W0401,W0614'
+let g:syntastic_python_pylint_args = '--disable=W0142,W0401,W0614,R0903'
 " Use make as C checker
 let g:syntastic_c_checkers = ['make', 'gcc']
 " Use scss_lint as Sass checker

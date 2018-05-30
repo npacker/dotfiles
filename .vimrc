@@ -445,8 +445,6 @@ set cursorline
 set laststatus=2
 " Disable the fold column to the left of line numbers
 set foldcolumn=0
-" Highlight matching braces
-set showmatch
 " Disable audible bell
 set noerrorbells
 " Disable visual bell

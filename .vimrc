@@ -68,6 +68,9 @@ Plugin '2072/PHP-Indenting-for-Vim'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 
+" Twig syntax support
+Plugin 'lumiliet/vim-twig'
+
 " Python syntax improved
 Plugin 'hdima/python-syntax'
 Plugin 'hynek/vim-python-pep8-indent'

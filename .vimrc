@@ -512,6 +512,11 @@ cnoremap %s/ %smagic/\v
 set lazyredraw
 " Increase number of characters sent to terminal at once
 set ttyfast
+" Limit number of columns to search for syntax items
+set synmaxcol=320
+" Reduce number of syntax lines scanned.
+syntax sync maxlines=120
+syntax sync minlines=60
 
 " BACKUP
 " ==============================================================================

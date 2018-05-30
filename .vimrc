@@ -73,7 +73,7 @@ Plugin 'lumiliet/vim-twig'
 
 " Python syntax improved
 Plugin 'hdima/python-syntax'
-Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'Vimjas/vim-python-pep8-indent'
 
 " Papyrus syntax support
 Plugin 'sirtaj/vim-papyrus'

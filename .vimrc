@@ -44,9 +44,6 @@ Plugin 'scrooloose/syntastic'
 " Improved commenting motions
 Plugin 'scrooloose/nerdcommenter'
 
-" Always match surrounding parenthesis
-Plugin 'justinmk/vim-matchparenalways'
-
 " Puppet syntax support
 Plugin 'puppetlabs/puppet-syntax-vim'
 

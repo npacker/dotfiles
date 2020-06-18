@@ -428,6 +428,8 @@ endtry
 highlight SyntasticWarningSign ctermfg=1 guifg=Red
 " Clear highlighting default on sign column
 highlight clear SignColumn
+" Remove CursorLineNr underline
+highlight CursorLineNr cterm=NONE
 
 " UI
 " ==============================================================================

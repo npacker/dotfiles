@@ -62,10 +62,12 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'npacker/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'MaxMEllon/vim-jsx-pretty'
 
 " PHP syntax improved
 Plugin '2072/PHP-Indenting-for-Vim'
 Plugin 'StanAngeloff/php.vim'
+" Plugin 'TysonAndre/php-vim-syntax'
 Plugin 'shawncplus/phpcomplete.vim'
 
 " Twig syntax support
@@ -84,6 +86,9 @@ Plugin 'npacker/vim-java-syntax-after'
 " C syntax improved
 Plugin 'justinmk/vim-syntax-extra'
 
+" Varnish VCL
+Plugin 'varnishcache-friends/vim-varnish'
+
 " Solarized color scheme
 Plugin 'altercation/vim-colors-solarized'
 
@@ -101,6 +106,7 @@ augroup FiletypeSettings
   autocmd BufNewFile,BufReadPre *.inc     set filetype=php
   autocmd BufNewFile,BufReadPre *.install set filetype=php
   autocmd BufNewFile,BufReadPre *.test    set filetype=php
+  autocmd BufNewFile,BufReadPre *.module  set filetype=php
 augroup END
 
 " ENCODING
@@ -144,6 +150,8 @@ let php_noShortTags = 1
 let g:PHP_vintage_case_default_indent = 1
 " Remove DOS line-endings when unix file encoding set
 let g:PHP_RemoveCRwhenUnix = 1
+" PHP version
+let g:php_version_id = 70429
 
 " Customize PHP syntax highlighting
 function! PhpSyntaxOverride()
@@ -515,10 +523,10 @@ set lazyredraw
 " Increase number of characters sent to terminal at once
 set ttyfast
 " Limit number of columns to search for syntax items
-set synmaxcol=320
+set synmaxcol=425
 " Reduce number of syntax lines scanned.
-syntax sync maxlines=120
-syntax sync minlines=60
+syntax sync maxlines=150
+syntax sync minlines=150
 
 " BACKUP
 " ==============================================================================

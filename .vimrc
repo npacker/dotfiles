@@ -158,6 +158,7 @@ function! PhpSyntaxOverride()
   highlight! default link phpDocTags       phpDefine
   highlight! default link phpDocParam      phpType
   highlight! default link phpDocIdentifier phpIdentifier
+  syntax keyword phpType readonly
 endfunction
 
 " Call PHP Syntax override function
